@@ -9,11 +9,65 @@ use \App\Http\Controllers\admin\AccountController;
 use App\Http\Controllers\guest\HomeController;
 use App\Http\Middleware\SetLocale;
 
+// this is for the professionals
+
+Route::get('/', function () {
+    return view('guest.index');
+});
+
+Route::get('/about', function () {
+    return view('guest.about.index');
+});
+
+Route::get('/404', function () {
+    return view('guest.404.index');
+});
+
+Route::get('/contact', function () {
+    return view('guest.contact.index');
+});
+
+Route::get('/control-screen', function () {
+    return view('guest.control-screen.index');
+});
+
+Route::get('/foresthome', function () {
+    return view('guest.foresthome.index');
+});
+
+Route::get('/gallery', function () {
+    return view('guest.gallery.index');
+});
+
+Route::get('/karinnahotel', function () {
+    return view('guest.karinnahotel.index');
+});
+
+Route::get('/payment-screen', function () {
+    return view('guest.payment-screen.index');
+});
+
+Route::get('/reservation', function () {
+    return view('guest.reservation.index');
+});
+
+Route::get('/reservation-list', function () {
+    return view('guest.reservation-list.index');
+});
+
+Route::get('/restaurant', function () {
+    return view('guest.restaurant.index');
+});
+
+Route::get('/services', function () {
+    return view('guest.services.index');
+});
+
+Route::get('/standart-deluxe-oda', function () {
+    return view('guest.standart-deluxe-oda.index');
+});
 
 
-
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
 // this is for the admin panel
 Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'AdminCtrl']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
