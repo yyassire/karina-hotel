@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+
+
+
+.calendar-time {
+  display: none;
+}
+
+.widget-contentt{
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  align-items: center;
+  position: absolute;
+  top: 60%;
+  width: 100%;
+}
+
+
+.entry-and-exit-date input {
+  width: 0%;
+  height: 0%;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.entry-and-exit-date input:focus {
+  box-shadow: none;
+}
+
+.search-widget {
+  text-align: center;
+  align-items: center;
+  background-color: #00000059;
+  width: 750px;
+  padding: 10px;
+  display: none;
+}
+.search-widget-show{
+  display: block;
+}
+.entry-and-exit-date {
+  display: flex;
+  position: relative;
+}
+
+.date-of-entry {
+  width: 50%;
+  text-align: center;
+}
+
+.release-date {
+  width: 50%;
+}
+
+.date-lbl-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.check-in-day {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.check-in-day-lbl {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 65px;
+  line-height: 76px;
+  color: #FFFFFF;
+  font-weight: 500;
+  margin: 0;
+  cursor: pointer;
+}
+
+.check-in-day-p {
+  position: absolute;
+  bottom: -3px;
+  right: 10px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.release-date-lbl {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.check-out-date {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.check-out-date-lbl {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 65px;
+  line-height: 76px;
+  color: #FFFFFF;
+  font-weight: 500;
+  margin: 0;
+  cursor: pointer;
+}
+
+.check-out-date-p {
+  position: absolute;
+  bottom: -3px;
+  right: 10px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+
+.adult-count-lbl {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.adult-count-p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 65px;
+  line-height: 76px;
+  color: #FFFFFF;
+  font-weight: 500;
+  margin: 0;
+}
+
+.adult-count-content {
+  background-color: aqua;
+}
+.adult-count{
+  cursor: pointer;
+}
+.adult-count-content {
+  position: absolute;
+  top: 117px;
+  background: white;
+  padding: 10px;
+  width: 180px;
+  left: 2%;
+  z-index: 99;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  display: none;
+}
+
+.adult-title-lbl {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+  color: #161616;
+}
+
+.adult-count-input {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.child-title-lbl {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+  color: #161616;
+}
+
+.child-count-input {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.adult-input {
+  width: 50px !important;
+  border-radius: 0 !important;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+
+
+.btn-decrease-adult {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+  width: 40px;
+}
+
+.btn-decrease-adult:disabled {
+  opacity: inherit !important;
+  background: black !important;
+  color: white !important;
+}
+.btn-decrease-adult:hover {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+}
+
+.btn-decrease-adult:focus {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+
+.btn-upgrade-adult {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+  width: 40px;
+}
+.btn-upgrade-adult:disabled {
+  opacity: inherit !important;
+  background: black !important;
+  color: white !important;
+}
+
+.btn-upgrade-adult:hover {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+}
+
+.btn-upgrade-adult:focus {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.child-input {
+  width: 50px;
+  border-radius: 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-decrease-child {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+  width: 40px;
+}
+
+.btn-decrease-child:disabled {
+  opacity: inherit !important;
+  background: black !important;
+  color: white !important;
+}
+
+
+.btn-decrease-child:hover {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+}
+
+.btn-decrease-child:focus {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.btn-upgrade-child {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+  width: 40px;
+}
+
+.btn-upgrade-child:disabled {
+  opacity: inherit !important;
+  background: black !important;
+  color: white !important;
+}
+
+.btn-upgrade-child:hover {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+}
+
+.btn-upgrade-child:focus {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.search-button {
+  padding: 15px;
+}
+
+.btn-search-room {
+  border: 2px solid #fff !important;
+  background-color: transparent;
+  border-radius: 0;
+  width: 100%;
+  height: 75px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.btn-search-room:hover {
+  border: 2px solid #fff;
+  color: #FFFFFF;
+}
+
+.btn-search-room:focus {
+  border: 2px solid #fff;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+
+@media (max-width: 768px) {
+  .search-widget {
+    width: auto;
+  }
+  .widget-contentt {
+    top: 169px;
+  }
+  .widged-show-hide {
+    position: absolute;
+    left: 0;
+    z-index: 8;
+    top: 110px;
+    transform: unset;
+    background: #495057;
+    padding: 10px 0;
+    cursor: pointer;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .date-lbl-text, .release-date-lbl {
+    font-size: 13px;
+  }
+
+  .check-in-day-lbl, .check-out-date-lbl, .adult-count-p {
+    font-size: 45px;
+  }
+  .check-in-day-p, .check-out-date-p {
+    bottom: 3px;
+    right: 0px;
+    font-size: 11px;
+  }
+}
