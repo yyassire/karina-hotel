@@ -6,91 +6,14 @@ use \App\Http\Controllers\admin\ContactController;
 use \App\Http\Controllers\admin\OrmanEvleriContactController;
 use \App\Http\Controllers\admin\AdminController;
 use \App\Http\Controllers\admin\AccountController;
+use App\Http\Controllers\guest\HomeController;
 use App\Http\Middleware\SetLocale;
 
-Route::fallback(function () {
-
-    return Redirect()->to('/')->send();
-});
-
-
-
-Route::group(['namespace' => 'form', 'prefix' => 'form', 'as' => 'form.'], function () {
-    Route::post('/add', [\App\Http\Controllers\admin\FormController::class, 'store'])->name('store');
-});
-
-Route::get('/', function () {
-    return redirect(app()->getLocale());
-});
-
-Route::get('/changelanguage/{lang}', [FrontController::class, 'changeLanguage'])->name('changeLanguage');
-
-Auth::routes();
-
-Route::get('/ajax/{id}', [FrontController::class, 'ajax'])->name('front.ajax');
-Route::get('/room_ajax/{id}', [FrontController::class, 'room_ajax'])->name('front.room_ajax');
-
-Route::get('/ormanevleri_room_ajax/{id}', [FrontController::class, 'ormanevleri_room_ajax'])->name('front.ormanevleri_room_ajax');
-
-Route::prefix('{locale}')
-    ->where(['locale' => '[a-zA-Z]{2}'])
-    ->middleware('setLocale')
-    ->group(function () {
-
-        Route::get("/reservation", function () {
-            return view('front.reservation');
-        });
-
-
-        Route::get('/', [FrontController::class, 'index'])->name('front.index');
-
-        Route::get('/pdf/{id}', [FrontController::class, 'pdf'])->name('front.pdf');
-
-        Route::get('/sayfalar/{selflink}/{id}', [FrontController::class, 'page'])->name('front.page');
-        Route::get('/pages/{selflink}/{id}', [FrontController::class, 'page'])->name('front.page');
-
-        Route::get('/hakkimizda', [FrontController::class, 'about'])->name('front.about');
-        Route::get('/about', [FrontController::class, 'about'])->name('front.about');
-
-
-        Route::get('/galeri', [FrontController::class, 'gallery'])->name('front.gallery');
-        Route::get('/gallery', [FrontController::class, 'gallery'])->name('front.gallery');
-
-
-        Route::get('/iletisim', [FrontController::class, 'contact'])->name('front.contact');
-        Route::get('/contact', [FrontController::class, 'contact'])->name('front.contact');
-
-
-        Route::get('/odalar', [FrontController::class, 'rooms'])->name('front.rooms');
-        Route::get('/rooms', [FrontController::class, 'rooms'])->name('front.rooms');
-
-
-        Route::get('/kurumsal/{selflink}/{id}', [FrontController::class, 'footer'])->name('front.footer');
-        Route::get('/corporate/{selflink}/{id}', [FrontController::class, 'footer'])->name('front.footer');
-
-        Route::get('/ormanevleri', [FrontController::class, 'ormanevleri'])->name('front.ormanevleri');
-
-        Route::get('/ormanevleri/orman-evleri', [FrontController::class, 'ormanevlerirooms'])->name('front.ormanevlerirooms');
-        Route::get('/ormanevleri/forest-homes', [FrontController::class, 'ormanevlerirooms'])->name('front.ormanevlerirooms');
-
-
-
-        Route::get('/ormanevleri/mons-1750-restoran', [FrontController::class, 'ormanevleriiglo'])->name('front.ormanevleriiglo');
-        Route::get('/ormanevleri/mons-1750-restaurant', [FrontController::class, 'ormanevleriiglo'])->name('front.ormanevleriiglo');
-
-        Route::get('/ormanevleri/galeri', [FrontController::class, 'ormanevlerigallery'])->name('front.ormanevlerigallery');
-        Route::get('/ormanevleri/gallery', [FrontController::class, 'ormanevlerigallery'])->name('front.ormanevlerigallery');
-
-        Route::get('/ormanevleri/iletisim', [FrontController::class, 'ormanevlericontact'])->name('front.ormanevlericontact');
-        Route::get('/ormanevleri/contact', [FrontController::class, 'ormanevlericontact'])->name('front.ormanevlericontact');
-    });
 
 
 
 
-
-
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 // this is for the admin panel
 Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'AdminCtrl']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
