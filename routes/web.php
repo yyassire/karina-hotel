@@ -10,7 +10,9 @@ use App\Http\Controllers\guest\HomeController;
 use App\Http\Middleware\SetLocale;
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// not an error
+Auth::routes();
+
 // this is for the admin panel
 Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'AdminCtrl']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
@@ -139,6 +141,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::get('/delete/{id}', [\App\Http\Controllers\admin\SliderCategoryController::class, 'delete'])->name('delete');
     });
 
+    // galery
     Route::group(['namespace' => 'slider', 'prefix' => 'slider', 'as' => 'slider.'], function () {
         Route::get('/{id}', [\App\Http\Controllers\admin\SliderController::class, 'index'])->name('index');
         Route::post('/ajaxdesk', [\App\Http\Controllers\admin\SliderController::class, 'ajaxdesk'])->name('ajaxdesk');
