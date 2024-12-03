@@ -67,7 +67,11 @@ Route::get('/standart-deluxe-oda', function () {
     return view('guest.standart-deluxe-oda.index');
 });
 
+<<<<<<< HEAD
 
+=======
+Route::get('/', [HomeController::class, 'index'])->name('home');
+>>>>>>> 0fb5ea17b06c137c75b6e7af8420fd46ddf23377
 // this is for the admin panel
 Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'AdminCtrl']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
