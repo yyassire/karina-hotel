@@ -30,8 +30,10 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+ 
   <link rel="stylesheet" href="{{asset('dashboard/dist/css/dropify.min.css')}}">
-
+  {{-- bootstrap select --}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -145,7 +147,8 @@
 <script src="{{asset('dashboard/dist/js/dropify.min.js')}}"></script>
 <script src="{{asset('dashboard/dist/js/dropify.js')}}"></script>
 <script src="{{asset('dashboard/dist/js/bootstrap.min.js')}}"></script>
-
+<!--  bootstrap select -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
 </body>
 </html>

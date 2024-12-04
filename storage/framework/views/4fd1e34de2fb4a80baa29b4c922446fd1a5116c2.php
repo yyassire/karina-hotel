@@ -6,7 +6,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Slider Galeri Yönetimi</h1>
+                            <h1>Slider Galeri Yönetimi yes</h1>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
@@ -59,9 +59,18 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                 </span>
                             </div>
+                            
+                            <div class="mb-5">
+                                 <select class="selectpicker" multiple data-live-search="true" title='filtreleme etiketi'>
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                  </select>
+                            </div>
                             <button type="submit" class="btn btn-primary btn-sm">Kaydet</button>
                             <a href="/admin/slider/destroy/<?php echo e($id); ?>" class="btn btn-danger btn-sm"
                                 onclick="return confirm('Emin Misiniz ?')">Tümünü Sil</a>
+                                
                         </form>
 
 
@@ -111,7 +120,9 @@ unset($__errorArgs, $__bag); ?>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('js'); ?>
     <script type="text/javascript">
+
         $(function() {
+            $('select').selectpicker();
             $("#priority-list").sortable({
                 stop: setPriority
             });
