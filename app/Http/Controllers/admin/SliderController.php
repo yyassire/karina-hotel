@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Requests\StoreSliderRequest;
+use App\Models\SliderFilter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
@@ -13,8 +14,10 @@ class SliderController extends Controller
 {
     public function index($id)
     {
+        $filters = SliderFilter::all();
         $data = Slider::where('slider_id', $id)->orderBy('desk', 'asc')->get();
-        return view('admin.slider.index', ['data' => $data, 'id' => $id]);
+        // $slug_category = 
+        return view('admin.slider.index', ['data' => $data, 'id' => $id, 'filters' => $filters]);
     }
 
     public function ajaxdesk(Request $request)
@@ -36,10 +39,24 @@ class SliderController extends Controller
                     return redirect()->to('/admin/slider/' . $all['slider_id'])->with('status', 'Aynı isimde daha önce yükleme işlemi yapılmış. Lütfen resim adını değiştirin veya farklı bir fotoğraf yükleyin !')->send();
                 }
                 $image->move(public_path('images/slider'), $imageName);
-                Slider::create([
-                    'slider_id' => $all['slider_id'],
-                    'image' => $imageName
-                ]);
+
+                // create slider
+                // if ($all['slider_filter_id'] == 0) {
+                //     $all['slider_filter_id'] = null;
+                // }
+                $selectedFilters = $request->input('filters');
+                if (isset($selectedFilters) && count($selectedFilters) > 0) {
+                    Slider::create([
+                        'slider_id' => $all['slider_id'],
+                        'image' => $imageName,
+                        'slider_filter_id' => json_encode($selectedFilters)
+                    ]);
+                } else {
+                    Slider::create([
+                        'slider_id' => $all['slider_id'],
+                        'image' => $imageName
+                    ]);
+                }
             }
         } else {
             dd('Lütfen Resim Seçiniz ! ');

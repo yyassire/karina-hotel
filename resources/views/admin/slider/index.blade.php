@@ -51,14 +51,18 @@
                                     @enderror
                                 </span>
                             </div>
-                            
+                         
+                            @if ($id == 4)
+                               
                             <div class="mb-5">
-                                 <select class="selectpicker" multiple data-live-search="true" title='filtreleme etiketi'>
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                  </select>
-                            </div>
+                                <select name="filters[]" class="selectpicker" multiple data-live-search="true" title='filtreleme etiketi'>
+                                   @foreach ($filters as $filter )
+                                       <option value="{{ $filter->id }}">{{$filter->name}}</option>
+                                   @endforeach      
+                                 </select>
+                           </div>
+                            @endif
+                          
                             <button type="submit" class="btn btn-primary btn-sm">Kaydet</button>
                             <a href="/admin/slider/destroy/{{ $id }}" class="btn btn-danger btn-sm"
                                 onclick="return confirm('Emin Misiniz ?')">Tümünü Sil</a>
