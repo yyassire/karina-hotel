@@ -20,6 +20,7 @@ class HomeController extends Controller
 
         return view('guest.index', compact('rooms'));
     }
+
     public function foresthome()
     {
         $sliders = Slider::where('slider_id', 12)->get();
@@ -42,6 +43,7 @@ class HomeController extends Controller
         $rooms = ActuRoom::all();
         return view('guest.reservation.index', compact('rooms'));
     }
+
     public function standart_deluxe_oda($id)
     {
         $room = ActuRoom::findOrFail($id);

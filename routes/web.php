@@ -79,7 +79,6 @@ Route::get('/reservation', [HomeController::class, 'reservation'])->name('reserv
 Route::get('/standart-deluxe-oda/{id}', [HomeController::class, 'standart_deluxe_oda'])->name('room.details');
 
 
-
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // this is for the admin panel
@@ -107,7 +106,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('/edit/{id}', [\App\Http\Controllers\admin\LanguageController::class, 'update'])->name('update');
         Route::get('/delete/{id}', [\App\Http\Controllers\admin\LanguageController::class, 'delete'])->name('delete');
     });
-
 
 
     Route::group(['namespace' => 'form', 'prefix' => 'form', 'as' => 'form.'], function () {
@@ -141,7 +139,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('/edit/{id}', [\App\Http\Controllers\admin\OrmanEvleriRoomController::class, 'update'])->name('update');
         Route::get('/delete/{id}', [\App\Http\Controllers\admin\OrmanEvleriRoomController::class, 'delete'])->name('delete');
     });
-
 
 
     Route::group(['namespace' => 'room_gallery', 'prefix' => 'room_gallery', 'as' => 'room_gallery.'], function () {
@@ -220,8 +217,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
     });
 
 
-
-
     Route::group(['namespace' => 'footer', 'prefix' => 'footer', 'as' => 'footer.'], function () {
         Route::get('/', [\App\Http\Controllers\admin\FooterController::class, 'index'])->name('index');
         Route::post('/ajaxdesk', [\App\Http\Controllers\admin\FooterController::class, 'ajaxdesk'])->name('ajaxdesk');
@@ -231,7 +226,6 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('/edit/{id}', [\App\Http\Controllers\admin\FooterController::class, 'update'])->name('update');
         Route::get('/delete/{id}', [\App\Http\Controllers\admin\FooterController::class, 'delete'])->name('delete');
     });
-
 
 
     Route::group(['namespace' => 'tkd', 'prefix' => 'tkd', 'as' => 'tkd.'], function () {
