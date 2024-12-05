@@ -51,9 +51,9 @@ Route::get('/payment-screen', function () {
     return view('guest.payment-screen.index');
 });
 
-Route::get('/reservation', function () {
-    return view('guest.reservation.index');
-});
+// Route::get('/reservation', function () {
+// return view('guest.reservation.index');
+// });
 
 Route::get('/reservation-list', function () {
     return view('guest.reservation-list.index');
@@ -75,7 +75,8 @@ Route::get('/standart-deluxe-oda', function () {
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/foresthome', [HomeController::class, 'foresthome'])->name('foresthome');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
-
+Route::get('/reservation', [HomeController::class, 'reservation'])->name('reservation');
+Route::get('/standart-deluxe-oda/{id}', [HomeController::class, 'standart_deluxe_oda'])->name('room.details');
 
 
 

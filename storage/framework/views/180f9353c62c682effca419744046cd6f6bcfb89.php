@@ -114,7 +114,7 @@
         </div>
     </div>
 </div>
-
+<div class=""><?php echo e($rooms); ?></div>
 <div class="container-fluid">
   <div class="row">
       <div class="col-12 col-md-4 text-center p-4">
@@ -179,100 +179,64 @@
             <div class="col-12 col-md-6 text-center text-md-start">
                 <div class="position-relative">
                     <a href="/standart-deluxe-oda">
-                        <img src="assets/img/rooms/1.png" class="img-fluid" alt="Resim Sol">
+                        
+                        <img src="<?php echo e($rooms[0]->featured_image); ?>" class="img-fluid rounded-3" alt="Resim Sol" style="width: 100%">
                     </a>
                     <a href="/standart-deluxe-oda">
                         <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2" style="bottom: 50px;">
-                            Standart Oda
+                            <?php echo e($rooms[0]->name); ?>
+
                         </h3>
                     </a>
                     <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 px-3 py-2 px-1 rounded-2">
                         <img class="me-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
-                        <img class="me-2 ms-3" src="assets/img/icon/2.svg" alt=""> 2 Yetişkin
-                        <img class="me-2 ms-3" src="assets/img/icon/3.svg" alt=""> 35 cm<sup>2</sup>
+                        <img class="me-2 ms-3" src="assets/img/icon/2.svg" alt=""> <?php echo e($rooms[0]->capacity); ?> kapasite
+                        <img class="me-2 ms-3" src="assets/img/icon/3.svg" alt="">  <?php echo e($rooms[0]->size); ?> cm<sup>2</sup>
                     </p>
                 </div>
             </div>
 
 
             <div class="col-12 col-md-6">
+                <?php if(null !== $rooms  && count($rooms) > 0): ?>
+                    
                 <div class="row">
+                    <?php
+                        // check if rooms count is less than 5
+                        $roomsCount = count($rooms) < 5 ? count($rooms) : 5;
+                         
+                    ?>
+                    <?php for($i = 1;  $i < $roomsCount ; $i++): ?>
                     <div class="col-6 col-md-6 text-center text-md-start">
                         <div class="position-relative">
                             <a href="/standart-deluxe-oda">
-                                <img src="assets/img/rooms/2.png" class="img-fluid" alt="Resim Sol">
+                                <img src="<?php echo e($rooms[$i]->featured_image); ?>" class="img-fluid" alt="Resim Sol">
                             </a>
                             <a href="/standart-deluxe-oda">
                                 <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room" >
-                                    Deluxe Suit Odası
+                                    <?php echo e($rooms[$i]->name); ?>
+
                                 </h3>
                             </a>
                             <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 py-1 px-2 rounded-2 small d-none d-md-block">
                                 <img class="me-1 ms-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
-                                <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> 2 Yetişkin
-                                <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt=""> 35 cm<sup>2</sup>
+                                <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> <?php echo e($rooms[$i]->capacity); ?> kapasite
+                                <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt="">  <?php echo e($rooms[$i]->size); ?> cm cm<sup>2</sup>
                             </p>
 
                         </div>
                     </div>
+                    <?php endfor; ?>
+                  
 
-                    <div class="col-6 col-md-6 text-center text-md-start">
-                        <div class="position-relative">
-                            <a href="/standart-deluxe-oda">
-                                <img src="assets/img/rooms/2.png" class="img-fluid" alt="Resim Sol">
-                            </a>
-                            <a href="/standart-deluxe-oda">
-                                <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room" >
-                                    Deluxe Suit Odası
-                                </h3>
-                            </a>
-                            <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 py-1 px-2 rounded-2 small d-none d-md-block">
-                                <img class="me-1 ms-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
-                                <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> 2 Yetişkin
-                                <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt=""> 35 cm<sup>2</sup>
-                            </p>
+                    
 
-                        </div>
-                    </div>
+                    
 
-                    <div class="col-6 col-md-6 text-center text-md-start mt-4">
-                        <div class="position-relative">
-                            <a href="/standart-deluxe-oda">
-                                <img src="assets/img/rooms/2.png" class="img-fluid" alt="Resim Sol">
-                            </a>
-                            <a href="/standart-deluxe-oda">
-                                <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room" >
-                                    Deluxe Suit Odası
-                                </h3>
-                            </a>
-                            <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 py-1 px-2 rounded-2 small d-none d-md-block">
-                                <img class="me-1 ms-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
-                                <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> 2 Yetişkin
-                                <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt=""> 35 cm<sup>2</sup>
-                            </p>
-
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-6 text-center text-md-start mt-4">
-                        <div class="position-relative">
-                            <a href="/standart-deluxe-oda">
-                                <img src="assets/img/rooms/2.png" class="img-fluid" alt="Resim Sol">
-                            </a>
-                            <a href="/standart-deluxe-oda">
-                                <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room" >
-                                    Deluxe Suit Odası
-                                </h3>
-                            </a>
-                            <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 py-1 px-2 rounded-2 small d-none d-md-block">
-                                <img class="me-1 ms-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
-                                <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> 2 Yetişkin
-                                <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt=""> 35 cm<sup>2</sup>
-                            </p>
-
-                        </div>
-                    </div>
+                    
+                   
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
