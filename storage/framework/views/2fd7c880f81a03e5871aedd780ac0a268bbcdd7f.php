@@ -34,6 +34,9 @@
   <link rel="stylesheet" href="<?php echo e(asset('dashboard/dist/css/dropify.min.css')); ?>">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+  
+  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -149,6 +152,9 @@
 <script src="<?php echo e(asset('dashboard/dist/js/bootstrap.min.js')); ?>"></script>
 <!--  bootstrap select -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+
+
 
 </body>
 </html>

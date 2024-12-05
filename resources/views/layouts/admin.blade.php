@@ -34,6 +34,11 @@
   <link rel="stylesheet" href="{{asset('dashboard/dist/css/dropify.min.css')}}">
   {{-- bootstrap select --}}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+  {{-- test --}}
+  {{-- <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+
+  <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet"> --}}
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -150,6 +155,10 @@
 <!--  bootstrap select -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
+
+{{-- text --}}
+{{-- <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script> --}}
 </body>
 </html>
 

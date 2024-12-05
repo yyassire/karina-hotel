@@ -33,120 +33,20 @@
 
 <div class="container my-5">
     <h2 class="text-center mb-4"></h2>
+   
     <div class="row g-4 mt-4">
+        @foreach ( $sliders as $slider )
         <div class="col-md-3 col-sm-6">
             <div class="card">
-                <img src="{{ asset('assets/img/forest/1.jpg') }}" class="card-img-top" alt="Resim 1">
+                <img src="{{ asset($slider['image']) }}" class="card-img-top" alt="Resim 1" style="height: 400px">
             </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/2.jpg') }}" class="card-img-top" alt="Resim 2">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/3.jpg') }}" class="card-img-top" alt="Resim 3">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/4.jpg') }}" class="card-img-top" alt="Resim 4">
-            </div>
-        </div>
+        @endforeach
     </div>
+   
+ 
 
-    <div class="row g-4 mt-4">
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/5.jpg') }}" class="card-img-top" alt="Resim 1">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/6.jpg') }}" class="card-img-top" alt="Resim 2">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/7.jpg') }}" class="card-img-top" alt="Resim 3">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/8.jpg') }}" class="card-img-top" alt="Resim 4">
-            </div>
-        </div>
-    </div>
 
-    <div class="row g-4 mt-4">
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/9.jpg') }}" class="card-img-top" alt="Resim 1">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/10.jpg') }}" class="card-img-top" alt="Resim 2">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/11.jpg') }}" class="card-img-top" alt="Resim 3">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/12.jpg') }}" class="card-img-top" alt="Resim 4">
-            </div>
-        </div>
-    </div>
-
-    <div class="row g-4 mt-4">
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/13.jpg') }}" class="card-img-top" alt="Resim 1">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/14.jpg') }}" class="card-img-top" alt="Resim 2">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/15.jpg') }}" class="card-img-top" alt="Resim 3">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/16.jpg') }}" class="card-img-top" alt="Resim 4">
-            </div>
-        </div>
-    </div>
-
-    <div class="row g-4 mt-4">
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/17.jpg') }}" class="card-img-top" alt="Resim 1">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/18.jpg') }}" class="card-img-top" alt="Resim 2">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/19.jpg') }}" class="card-img-top" alt="Resim 3">
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card">
-                <img src="{{ asset('assets/img/forest/20.jpg') }}" class="card-img-top" alt="Resim 4">
-            </div>
-        </div>
-    </div>
 </div>
 
 @include('guest.includes.footer') <!-- Blade include -->

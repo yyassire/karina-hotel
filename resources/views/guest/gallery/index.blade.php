@@ -27,61 +27,37 @@
         </a>
         >
         <span class="text-dark">Galeri</span>
+        
     </p>
 </div>
 
 <div class="container">
     <div class="d-flex flex-wrap justify-content-center mt-4">
         <span class="fs-4 text-dark mx-3 my-2" onclick="showCategory('all')" style="cursor: pointer;">Genel</span>
-        <span class="fs-4 text-dark mx-3 my-2" onclick="showCategory('lobby')" style="cursor: pointer;">Otel Lobi</span>
-        <span class="fs-4 text-dark mx-3 my-2" onclick="showCategory('rooms')" style="cursor: pointer;">Odalar</span>
-        <span class="fs-4 text-dark mx-3 my-2" onclick="showCategory('forest')" style="cursor: pointer;">Orman Evleri</span>
-        <span class="fs-4 text-dark mx-3 my-2" onclick="showCategory('spa')" style="cursor: pointer;">Spa&Massage</span>
-        <span class="fs-4 text-dark mx-3 my-2" onclick="showCategory('pool')" style="cursor: pointer;">Havuz</span>
+   @foreach ($SliderFilters  as $SliderFilter)
+   <span class="fs-4 text-dark mx-3 my-2" onclick="showCategory('image-{{  $SliderFilter->id }}')" style="cursor: pointer;">{{  $SliderFilter['name']  }}</span>
+   @endforeach
+       
+
+
     </div>
 
     <div class="row mt-4 gallery-container">
-        <div class="col-12 col-md-6 col-lg-4 gallery-item all">
-            <img src="{{ asset('assets/img/gallery/1.png') }}" alt="Genel" class="img-fluid mb-4">
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 gallery-item all">
-            <img src="{{ asset('assets/img/gallery/2.png') }}" alt="Genel" class="img-fluid mb-4">
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 gallery-item all">
-            <img src="{{ asset('assets/img/gallery/3.png') }}" alt="Genel" class="img-fluid mb-4">
-        </div>
+    
 
-        <div class="col-12 col-md-6 col-lg-4 gallery-item lobby">
-            <img src="{{ asset('assets/img/gallery/4.png') }}" alt="Otel Lobi" class="img-fluid mb-4">
+         @foreach ($sliders as $slider )
+         @php
+      $filter_ids = json_decode($slider->slider_filter_id, true);
+      $filter_ids = is_array($filter_ids) ? $filter_ids : [];
+      $filter_ids = array_map(function($value) {
+                return 'image-' . $value;
+            }, $filter_ids);
+     @endphp
+        
+         <div class="col-12 col-md-6 col-lg-4 gallery-item mb-4 {{ implode(' ', $filter_ids) }}" style="height: 300px">
+            <img src="{{ asset($slider->image) }}" alt="" class="img-fluid mb-4" style="height: 100%;width:100%">
         </div>
-        <div class="col-12 col-md-6 col-lg-4 gallery-item lobby">
-            <img src="{{ asset('assets/img/gallery/2.png') }}" alt="Otel Lobi" class="img-fluid mb-4">
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 gallery-item rooms">
-            <img src="{{ asset('assets/img/gallery/6.png') }}" alt="Odalar" class="img-fluid mb-4">
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 gallery-item rooms">
-            <img src="{{ asset('assets/img/gallery/7.png') }}" alt="Odalar" class="img-fluid mb-4">
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 gallery-item forest">
-            <img src="{{ asset('assets/img/gallery/1.png') }}" alt="Orman Evleri" class="img-fluid mb-4">
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 gallery-item forest">
-            <img src="{{ asset('assets/img/gallery/2.png') }}" alt="Orman Evleri" class="img-fluid mb-4">
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 gallery-item spa">
-            <img src="{{ asset('assets/img/gallery/4.png') }}" alt="Spa&Massage" class="img-fluid mb-4">
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 gallery-item spa">
-            <img src="{{ asset('assets/img/gallery/2.png') }}" alt="Spa&Massage" class="img-fluid mb-4">
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 gallery-item pool">
-            <img src="{{ asset('assets/img/gallery/6.png') }}" alt="Havuz" class="img-fluid mb-4">
-        </div>
+         @endforeach
     </div>
 </div>
 

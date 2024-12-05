@@ -15,9 +15,9 @@ use App\Http\Middleware\SetLocale;
 Auth::routes();
 
 
-Route::get('/', function () {
-    return view('guest.index');
-});
+// Route::get('/', function () {
+//     return view('guest.index');
+// });
 
 Route::get('/about', function () {
     return view('guest.about.index');
@@ -35,13 +35,13 @@ Route::get('/control-screen', function () {
     return view('guest.control-screen.index');
 });
 
-Route::get('/foresthome', function () {
-    return view('guest.foresthome.index');
-});
+// Route::get('/foresthome', function () {
+//     return view('guest.foresthome.index');
+// });
 
-Route::get('/gallery', function () {
-    return view('guest.gallery.index');
-});
+// Route::get('/gallery', function () {
+//     return view('guest.gallery.index');
+// });
 
 Route::get('/karinnahotel', function () {
     return view('guest.karinnahotel.index');
@@ -70,6 +70,11 @@ Route::get('/services', function () {
 Route::get('/standart-deluxe-oda', function () {
     return view('guest.standart-deluxe-oda.index');
 });
+
+// guest routes======================
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/foresthome', [HomeController::class, 'foresthome'])->name('foresthome');
+Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 
 
 
