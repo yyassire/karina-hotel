@@ -120,147 +120,33 @@
 
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-4 col-12 mb-4">
-            <div class="card border-0">
-                <img src="../assets/img/rooms/6.png" class="card-img-top" alt="Card image 1">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="/standart-deluxe-oda" class="text-decoration-none text-dark">
-                            Standart Oda
-                        </a>
-                        <i class="ms-5 fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                    </h5>
-                    <p class="mt-2">
-                        <img class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
-                        <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
-                        <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
-                    </p>
+        @foreach ($rooms as $room)
+            <div class="col-md-4 col-12 mb-4">
+                <div class="card border-0">
+                    <!-- Oda resmini dinamik hale getiriyoruz -->
+                    <img src="{{ asset($room->featured_image ?? 'path/to/default_image.jpg') }}" class="card-img-top" style="height: 350px" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ route('room.details', $room->id) }}" class="text-decoration-none text-dark">
+                                {{ $room->name }}
+                            </a>
+                            <!-- Oda yıldızları (örnek) -->
+                            @for ($i = 0; $i < min($room->stars, 5); $i++)
+                                <i class="ms-1 fas fa-star text-warning me-1"></i>
+                            @endfor
+                        </h5>
+                        <p class="mt-2">
+                            <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt="">
+                            {{ optional($room->various_rooms_numb)[1] ?? '0' }} Yetişkin
+                            <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt="">
+                            {{ $room->size ?? '0' }} cm<sup>2</sup>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-4 col-12 mb-4">
-            <div class="card border-0">
-                <img src="../assets/img/rooms/6.png" class="card-img-top" alt="Card image 1">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="/standart-deluxe-oda" class="text-decoration-none text-dark">
-                            Standart Oda
-                        </a>
-                        <i class="ms-5 fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                    </h5>
-                    <p class="mt-2">
-                        <img class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
-                        <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
-                        <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-12 mb-4">
-            <div class="card border-0">
-                <img src="../assets/img/rooms/6.png" class="card-img-top" alt="Card image 1">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="/standart-deluxe-oda" class="text-decoration-none text-dark">
-                            Standart Oda
-                        </a>
-                        <i class="ms-5 fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                    </h5>
-                    <p class="mt-2">
-                        <img class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
-                        <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
-                        <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-12 mb-4">
-            <div class="card border-0">
-                <img src="../assets/img/rooms/6.png" class="card-img-top" alt="Card image 1">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="/standart-deluxe-oda" class="text-decoration-none text-dark">
-                            Standart Oda
-                        </a>
-                        <i class="ms-5 fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                    </h5>
-                    <p class="mt-2">
-                        <img class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
-                        <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
-                        <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-12 mb-4">
-            <div class="card border-0">
-                <img src="../assets/img/rooms/6.png" class="card-img-top" alt="Card image 1">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="/standart-deluxe-oda" class="text-decoration-none text-dark">
-                            Standart Oda
-                        </a>
-                        <i class="ms-5 fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                    </h5>
-                    <p class="mt-2">
-                        <img class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
-                        <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
-                        <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-12 mb-4">
-            <div class="card border-0">
-                <img src="../assets/img/rooms/6.png" class="card-img-top" alt="Card image 1">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="/standart-deluxe-oda" class="text-decoration-none text-dark">
-                            Standart Oda
-                        </a>
-                        <i class="ms-5 fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                    </h5>
-                    <p class="mt-2">
-                        <img class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
-                        <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
-                        <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
-                    </p>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
-
-
 
 
 <div class="container my-5">

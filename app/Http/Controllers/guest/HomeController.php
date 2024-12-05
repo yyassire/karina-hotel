@@ -36,4 +36,16 @@ class HomeController extends Controller
 
         return view('guest.gallery.index', compact('sliders', 'SliderFilters'));
     }
+
+    public function reservation()
+    {
+        $rooms = ActuRoom::all();
+        return view('guest.reservation.index', compact('rooms'));
+    }
+    public function standart_deluxe_oda($id)
+    {
+        $room = ActuRoom::findOrFail($id);
+        return view('guest.standart-deluxe-oda.index', compact('room'));
+    }
 }
+

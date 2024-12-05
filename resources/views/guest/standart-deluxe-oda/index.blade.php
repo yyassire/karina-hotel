@@ -237,25 +237,9 @@
     <div class="row">
         <div class="col-md-7">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="../assets/img/standart-deluxe-oda/3.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../assets/img/standart-deluxe-oda/3.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../assets/img/standart-deluxe-oda/3.png" class="d-block w-100" alt="...">
-                    </div>
-                </div>
+                <img src="../assets/img/standart-deluxe-oda/3.png" class="img-fluid" alt="...">
 
                 <p class="mt-5 mb-4 text-center fs-5 text-custom">
-                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
                     <img height="40" class="me-3 ms-5" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
                     <img height="40" class="me-3 ms-5" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
                 </p>
