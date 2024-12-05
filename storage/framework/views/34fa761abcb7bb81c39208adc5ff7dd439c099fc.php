@@ -50,11 +50,8 @@
           <div class="mb-3 mb-sm-0">
             <h6 class="mb-0 text-title ms-2">Hotel Tipi</h6>
             <select class="form-select border-0 focus-ring-0" id="mySelect" aria-label="Otel 1 Seçimi">
-                <option value="otel1" selected>Orman Evleri</option>
-                <option value="otel2">Otel 2</option>
-                <option value="otel3">Otel 3</option>
-                <option value="otel4">Otel 4</option>
-                <option value="otel5">Otel 5</option>
+                <option value="1" selected>Karinna Evleri</option>
+                <option value="2" >Orman Evleri</option>             
             </select>
         </div>
 
@@ -114,7 +111,7 @@
         </div>
     </div>
 </div>
-<div class=""><?php echo e($rooms); ?></div>
+
 <div class="container-fluid">
   <div class="row">
       <div class="col-12 col-md-4 text-center p-4">
@@ -174,12 +171,11 @@
     </div>
   </div>
 
-    <div class="container">
+    <div class="container" style="overflow-x: hidden">
         <div class="row">
             <div class="col-12 col-md-6 text-center text-md-start box1">
                 <div class="position-relative">
                     <a href="/standart-deluxe-oda">
-                        
                         <img src="<?php echo e($rooms[0]->featured_image); ?>" class="img-fluid rounded-3" alt="Resim Sol" style="width: 100%">
                     </a>
                     <a href="/standart-deluxe-oda">
@@ -210,7 +206,7 @@
                     <div class="col-6 col-md-6 text-center text-md-start mb-3 ">
                         <div class="position-relative">
                             <a href="/standart-deluxe-oda">
-                                <img src="<?php echo e($rooms[$i]->featured_image); ?>" class="img-fluid" alt="Resim Sol">
+                                <img src="<?php echo e($rooms[$i]->featured_image); ?>" class="img-fluid rounded-2" alt="Resim Sol">
                             </a>
                             <a href="/standart-deluxe-oda">
                                 <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room" >
@@ -229,11 +225,6 @@
                     <?php endfor; ?>
                   
 
-                    
-
-                    
-
-                    
                    
                 </div>
                 <?php endif; ?>

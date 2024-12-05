@@ -17,6 +17,7 @@ class HomeController extends Controller
             ->orderBy('created_at', 'desc')
             ->take(5)
             ->get();
+        // $rooms_types = 
 
         return view('guest.index', compact('rooms'));
     }
@@ -39,7 +40,7 @@ class HomeController extends Controller
 
     public function reservation()
     {
-        $rooms = ActuRoom::all();
+        $rooms = ActuRoom::paginate(6);
         return view('guest.reservation.index', compact('rooms'));
     }
     public function standart_deluxe_oda($id)
@@ -48,4 +49,3 @@ class HomeController extends Controller
         return view('guest.standart-deluxe-oda.index', compact('room'));
     }
 }
-
