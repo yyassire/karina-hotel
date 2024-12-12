@@ -4,9 +4,9 @@ namespace App\Http\Controllers\guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActuRoom;
+use App\Models\Service;
 use App\Models\Slider;
 use App\Models\SliderFilter;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -17,9 +17,9 @@ class HomeController extends Controller
             ->orderBy('created_at', 'desc')
             ->take(5)
             ->get();
-        // $rooms_types = 
+        $services = Service::all();
 
-        return view('guest.index', compact('rooms'));
+        return view('guest.index', compact('rooms', 'services'));
     }
     public function foresthome()
     {
@@ -46,6 +46,10 @@ class HomeController extends Controller
     public function standart_deluxe_oda($id)
     {
         $room = ActuRoom::findOrFail($id);
-        return view('guest.standart-deluxe-oda.index', compact('room'));
+        $rooms = ActuRoom::where('preferred_room', 1)
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
+        return view('guest.standart-deluxe-oda.index', compact('room', 'rooms'));
     }
 }

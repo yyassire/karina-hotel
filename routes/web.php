@@ -67,9 +67,9 @@ Route::get('/services', function () {
     return view('guest.services.index');
 });
 
-Route::get('/standart-deluxe-oda', function () {
-    return view('guest.standart-deluxe-oda.index');
-});
+// Route::get('/standart-deluxe-oda', function () {
+//     return view('guest.standart-deluxe-oda.index');
+// });
 
 // guest routes======================
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -77,6 +77,7 @@ Route::get('/foresthome', [HomeController::class, 'foresthome'])->name('forestho
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/reservation', [HomeController::class, 'reservation'])->name('reservation');
 Route::get('/standart-deluxe-oda/{id}', [HomeController::class, 'standart_deluxe_oda'])->name('room.details');
+
 
 
 

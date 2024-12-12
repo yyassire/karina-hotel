@@ -367,6 +367,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="/admin/service" class="nav-link">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                        Hizmetlerİmİz
+                    </p>
+                </a>
+            </li>
 
 
             <li class="nav-item">

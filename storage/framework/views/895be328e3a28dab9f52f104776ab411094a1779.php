@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/main.css')); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Gorditas:wght@400;700&family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Gorditas:wght@400;700&family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
     <title>Karinna Hotel</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
 
 
 </head>
@@ -93,7 +94,8 @@
         </div>
 
         <div class="d-flex justify-content-start mb-3 mt-3">
-            <button class="btn btn-outline-success border-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#moreFilters" aria-expanded="false" aria-controls="moreFilters">
+            <button class="btn btn-outline-success border-0 me-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#moreFilters" aria-expanded="false" aria-controls="moreFilters">
                 Daha Fazla Filtrele
                 <i class="fas fa-chevron-down ms-2"></i>
             </button>
@@ -101,7 +103,8 @@
             <div>
                 <div class="d-flex align-items-center bg-light p-2 border rounded position-relative me-2">
                     <span>2 Yatak </span>
-                    <button class="btn btn-sm btn-link position-absolute top-0 end-0 p-0" type="button" aria-label="Close" onclick="this.parentElement.remove()">
+                    <button class="btn btn-sm btn-link position-absolute top-0 end-0 p-0" type="button"
+                            aria-label="Close" onclick="this.parentElement.remove()">
                         <i class="fas fa-times text-success"></i>
                     </button>
                 </div>
@@ -113,8 +116,6 @@
                 </div>
             </div>
         </div>
-
-
 
 
         <div class="collapse mt-4" id="moreFilters">
@@ -134,8 +135,8 @@
                     const selectedPrice = document.getElementById('selectedPrice');
                     const maxPrice = document.getElementById('maxPrice');
 
-                    priceRange.addEventListener('input', function() {
-                        selectedPrice.textContent = `${priceRange.value}₺`;
+                    priceRange.addEventListener('input', function () {
+                        selectedPrice.textContent = ${priceRange.value}₺;
                     });
                 </script>
 
@@ -146,7 +147,7 @@
                         <label class="form-check-label" for="bed1">1 Yatak</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio"  name="bed" id="bed2">
+                        <input class="form-check-input" type="radio" name="bed" id="bed2">
                         <label class="form-check-label" for="bed2">2 Yatak</label>
                     </div>
                 </div>
@@ -204,7 +205,6 @@
 </div>
 
 
-
 <div class="container">
     <p class="text-title ms-4 my-4">
         <a href="http://localhost/karinna-hotel/" class="text-decoration-none text-custom">
@@ -231,73 +231,74 @@
     </p>
 </div>
 
-
-
+<?php
+    $decoded_images = json_decode($room->images, true); 
+?>
 <div class="container my-5">
     <div class="row">
         <div class="col-md-7">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <img src="../assets/img/standart-deluxe-oda/3.png" class="img-fluid" alt="...">
+            <div id="carouselExampleIndicators" class="carousel slide text-center" data-ride="carousel">
+                <!-- Featured Image -->
+                <img src="<?php echo e(asset($room->featured_image)); ?>" class="img-fluid rounded-3" style="width: 100%;height: 520px;" alt="...">
+                
 
                 <p class="mt-5 mb-4 text-center fs-5 text-custom">
-                    <img height="40" class="me-3 ms-5" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
-                    <img height="40" class="me-3 ms-5" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
+                    <img height="40" class="me-3 ms-5" src="../assets/img/icon/manager-1.svg" alt=""> <?php echo e($room->capacity); ?>
+
+                    Kapasite
+                    <img height="40" class="me-3 ms-5" src="../assets/img/icon/select-1.svg" alt=""> <?php echo e($room->size); ?>
+
+                    cm<sup>2</sup>
                 </p>
                 <p class="mt-5 mb-4 text-center fs-5 text-custom">
-                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/hand.svg" alt="">10.500TL/Gecelik
-                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/bed.svg" alt=""> 1 Ebeven Yatağı
-                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/bathtub.svg" alt="">1 Banyo
-                </p>
-                <p class="text-black fs-2 fw-semibold font-family-Barlow  m-0 px-3 py-2">Genel Bakış</p>
-                <p class="text-secondary fs-6 fw-medium font-family-Manrope  m-0 px-3 py-2">Lüks odamız beyaz kumlu plajın muhteşem
-                    manzarasını sunmaktadır. Bu oda modern tarzda tasarlanmış, dekore edilmiş ve en lüks olanaklarla donatılmıştır. Küçük lüksler
-                    arasında ücretsiz Wi-Fi, lüks banyo malzemeleri ve 4K teknolojili düz ekran kablo televizyon yer almaktadır.</p>
+                    
+                <?php $__currentLoopData = $room->amenities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $amenitie): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                   
+                    
+                        
+
+                    
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </p>
+                
+                <p class="text-black fs-2 fw-semibold font-family-Barlow m-0 px-3 py-2">Genel Bakış</p>
+                <p class="text-secondary fs-6 fw-medium font-family-Manrope m-0 px-3 py-2"><?php echo e($room->room_description); ?></p>
                 <hr>
                 <div class="container mt-5">
                     <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <img src="../assets/img/standart-deluxe-oda/4.png" alt="Fotoğraf 1" class="img-fluid">
+                        <?php $__currentLoopData = $decoded_images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $decoded_image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="col-md-6 mb-3 rounded-2">
+                            <img src=" <?php echo e(asset($decoded_image)); ?>" alt="Fotoğraf 1" class="img-fluid">
                         </div>
-
-                        <div class="col-md-6 mb-3">
-                            <img src="../assets/img/standart-deluxe-oda/4.png" alt="Fotoğraf 2" class="img-fluid">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <img src="../assets/img/standart-deluxe-oda/4.png" alt="Fotoğraf 3" class="img-fluid">
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <img src="../assets/img/standart-deluxe-oda/4.png" alt="Fotoğraf 4" class="img-fluid">
-                        </div>
+     
+                         
+                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-5">
-            <p class="fs-6 text-custom mt-3">10.500TL/Gecelik</p>
-            <p class="ms-3 text-black fs-1 fw-semibold font-family-Barlow text-uppercase  m-0 px-3 py-2">Standart ODa</p>
-            <p class="text-secondary fs-6 fw-medium font-family-Manrope  m-0 px-3 py-2">Kendi özel balkonunuza erişimin keyfini çıkarabileceğiniz oda, size en güzel zamanı yaşatmak için modern ve en lüks ekipmanlarla donatılmıştır.</p>
+            <p class="fs-6 text-custom mt-3"><?php echo e($room->price_per_night); ?>TL/Gecelik</p>
+            <p class="ms-3 text-black fs-1 fw-semibold font-family-Barlow text-uppercase m-0 px-3 py-2"><?php echo e($room->room_type); ?></p>
+            <p class="text-secondary fs-6 fw-medium font-family-Manrope m-0 px-3 py-2"><?php echo e($room->room_summary); ?></p>
             <p class="text-black fs-6 fw-medium font-family-Barlow m-0 px-3 py-2 mt-4">Tutulacak Oda Adedi</p>
-            <div class="d-flex mt-4  mb-5">
+            <div class="d-flex mt-4 mb-5">
                 <div class="btn-group me-4">
-                    <select class="btn btn-outline-success dropdown-toggle   " id="mySelect" >
+                    <select class="btn btn-outline-success dropdown-toggle" id="mySelect">
                         <option value="1" selected>Seçenekler</option>
                         <option value="2"> 1</option>
                         <option value="3"> 2</option>
                         <option value="4"> 3</option>
                         <option value="5"> 4</option>
                     </select>
-
                 </div>
-
                 <a href="#rezervasyon" class="btn btn-success footer">Rezervasyon Yap</a>
-            </div><br><br><br>
+            </div>
+            <br><br><br>
 
-
+            <!-- Reservation Form -->
             <div class="container mt-5">
                 <div class="card">
                     <div class="card-header footer text-white text-center">
@@ -307,11 +308,13 @@
                         <form>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="checkin" class="form-label text-black fs-6 fw-semibold font-family-Barlow  m-0 px-3 py-2">Giriş </label>
+                                    <label for="checkin"
+                                           class="form-label text-black fs-6 fw-semibold font-family-Barlow m-0 px-3 py-2">Giriş </label>
                                     <input type="date" class="form-control" id="checkin" name="checkin" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="checkout" class="form-label text-black fs-6 fw-semibold font-family-Barlow  m-0 px-3 py-2">Çıkış </label>
+                                    <label for="checkout"
+                                           class="form-label text-black fs-6 fw-semibold font-family-Barlow m-0 px-3 py-2">Çıkış </label>
                                     <input type="date" class="form-control" id="checkout" name="checkout" required>
                                 </div>
                             </div>
@@ -338,7 +341,8 @@
                             </div>
 
                             <div class="mb-3">
-                                <p class="text-black fs-6 fw-bold font-family-Barlow text-uppercase  m-0 px-3 py-2">Ekstra ücret</p>
+                                <p class="text-black fs-6 fw-bold font-family-Barlow text-uppercase m-0 px-3 py-2">
+                                    Ekstra ücret</p>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -380,58 +384,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3">
-                                <p class="text-black fs-6 fw-bold font-family-Barlow text-uppercase  m-0 px-3 py-2">Servis</p>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12 mb-3 d-flex justify-content-between align-items-center">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="breakfast" name="breakfast">
-                                        <label class="form-check-label" for="breakfast">Oda Kahvaltı</label>
-                                    </div>
-                                    <span class="text-dark">2.500 TL/gün</span>
-                                </div>
-                                <hr>
-                                <div class="col-md-12 mb-3 d-flex justify-content-between align-items-center">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="breakfast" name="breakfast">
-                                        <label class="form-check-label" for="breakfast">Akşam Yemeği</label>
-                                    </div>
-                                    <span class="text-dark">2.500 TL/gün</span>
-                                </div>
-                                <hr>
-                                <div class="col-md-12 mb-3 d-flex justify-content-between align-items-center">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="breakfast" name="breakfast">
-                                        <label class="form-check-label" for="breakfast">Kayak Merkezi</label>
-                                    </div>
-                                    <span class="text-dark">2.500 TL/gün</span>
-                                </div>
-                                <hr>
-                                <div class="col-md-12 mb-3 d-flex justify-content-between align-items-center">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="breakfast" name="breakfast">
-                                        <label class="form-check-label" for="breakfast">Gym ve Spa</label>
-                                    </div>
-                                    <span class="text-dark">2.500 TL/gün</span>
-                                </div>
-                                <hr>
-                            </div>
-
-
-
-                            <div class="col-md-12 mt-5 d-flex justify-content-between align-items-center">
-                                <div class="form-check">
-                                    <p class="text-secondary fs-6 fw-medium font-family-Barlow mb-0 ">Toplam</p>
-                                    <p class="text-custom fs-2 fw-semibold font-family-Barlow  ">10.500 TL</p>
-
-                                </div>
-                                <a href="/control-screen" class="btn btn-success footer w-50">
-                                    Seç
-                                </a>
-
-                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Rezervasyon Yap</button>
                         </form>
                     </div>
                 </div>
@@ -440,15 +393,18 @@
     </div>
 </div>
 
+
 <div class="container mt-5">
     <div class="row">
+        <?php $__currentLoopData = $rooms; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c_room): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="col-md-4 col-12 mb-4">
             <div class="card border-0 shadow">
-                <img src="../assets/img/rooms/6.png" class="card-img-top" alt="Card image 1">
+                <img src="<?php echo e(asset($c_room->featured_image)); ?>" class="card-img-top img-fluid" style="height: 260px;" alt="Card image 1">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="/standart-deluxe-oda" class="text-decoration-none text-dark">
-                            Standart Oda
+                        <a href="/standart-deluxe-oda/<?php echo e($c_room->id); ?>" class="text-decoration-none text-dark">
+                           <?php echo e($c_room->name); ?>
+
                         </a>
                         <i class="ms-5 fas fa-star text-warning me-1"></i>
                         <i class="fas fa-star text-warning me-1"></i>
@@ -457,71 +413,23 @@
                         <i class="fas fa-star text-warning me-1"></i>
                     </h5>
                     <p class="mt-2">
-                        <img class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
-                        <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
-                        <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
+           
+                        <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt=""> <?php echo e($c_room->capacity); ?>
+
+                        Kapasite
+                        <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt=""> <?php echo e($c_room->size); ?>
+
+                        cm<sup>2</sup>
                     </p>
                 </div>
             </div>
         </div>
-
-        <div class="col-md-4 col-12 mb-4">
-            <div class="card border-0 shadow">
-                <img src="../assets/img/rooms/6.png" class="card-img-top" alt="Card image 1">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="/standart-deluxe-oda" class="text-decoration-none text-dark">
-                            Standart Oda
-                        </a>
-                        <i class="ms-5 fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                    </h5>
-                    <p class="mt-2">
-                        <img class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
-                        <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
-                        <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-12 mb-4">
-            <div class="card border-0 shadow">
-                <img src="../assets/img/rooms/6.png" class="card-img-top" alt="Card image 1">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="/standart-deluxe-oda" class="text-decoration-none text-dark">
-                            Standart Oda
-                        </a>
-                        <i class="ms-5 fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                        <i class="fas fa-star text-warning me-1"></i>
-                    </h5>
-                    <p class="mt-2">
-                        <img class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
-                        <img class="me-3 ms-3" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
-                        <img class="me-3 ms-3" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-
-
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 </div>
 
 
-
-
 <?php echo $__env->make('guest.includes.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
 
 </body>
 
@@ -532,5 +440,4 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-</html>
-<?php /**PATH C:\MAMP\htdocs\karinnahotel.com\resources\views/guest/standart-deluxe-oda/index.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\MAMP\htdocs\karinnahotel.com\resources\views/guest/standart-deluxe-oda/index.blade.php ENDPATH**/ ?>

@@ -172,6 +172,8 @@
   </div>
 
     <div class="container" style="overflow-x: hidden">
+        @if (null !== $rooms  && count($rooms) > 0)
+
         <div class="row">
             <div class="col-12 col-md-6 text-center text-md-start box1">
                 <div class="position-relative">
@@ -193,7 +195,7 @@
 
 
             <div class="col-12 col-md-6 box2">
-                @if (null !== $rooms  && count($rooms) > 0)
+                {{-- @if (null !== $rooms  && count($rooms) > 0) --}}
                     
                 <div class="row ">
                     @php
@@ -225,11 +227,12 @@
 
                    
                 </div>
-                @endif
+                {{-- @endif --}}
             </div>
         </div>
+        @endif
     </div>
-
+  
 
 
 <div class="container my-5">
