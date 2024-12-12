@@ -149,27 +149,12 @@
     </div>
 </div>
 
+    <div class="container my-5" style="display: flex;align-items: center;justify-content: center">
+        <?php echo e($rooms->links('pagination::bootstrap-4')); ?>
 
-<div class="container my-5">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item">
-                <a class="page-link btn-success" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&lt;</span>
-                </a>
-            </li>
-            <li class="page-item"><a class="page-link btn-success" href="#">1</a></li>
-            <li class="page-item"><a class="page-link btn-success" href="#">2</a></li>
-            <li class="page-item"><a class="page-link btn-success" href="#">3</a></li>
-            <li class="page-item"><a class="page-link btn-success" href="#">4</a></li>
-            <li class="page-item">
-                <a class="page-link btn-success" href="#" aria-label="Next">
-                    <span aria-hidden="true">&gt;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>
+    </div>
+
+
 
 
 <?php echo $__env->make('guest.includes.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

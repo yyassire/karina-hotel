@@ -46,7 +46,7 @@
     <div class="modal fade" id="overlayModal" tabindex="-1" role="dialog" aria-labelledby="overlayModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen" role="document">
             <div class="modal-content text-white position-relative" style="background-color: #01654C; color: white;">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center" style="z-index: 0; opacity: 0.3;"></div>
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center" style="z-index: -1; opacity: 0.3;"></div>
                 <div class="modal-header border-0">
                     <button type="button" class="btn-close position-relative" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
