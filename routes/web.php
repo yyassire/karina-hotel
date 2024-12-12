@@ -6,6 +6,7 @@ use \App\Http\Controllers\admin\ContactController;
 use \App\Http\Controllers\admin\OrmanEvleriContactController;
 use \App\Http\Controllers\admin\AdminController;
 use \App\Http\Controllers\admin\AccountController;
+use App\Http\Controllers\Admin\MainPageTitleSubtitleController;
 use App\Http\Controllers\guest\HomeController;
 use App\Http\Middleware\SetLocale;
 
@@ -66,10 +67,17 @@ Route::get('/restaurant', function () {
 Route::get('/services', function () {
     return view('guest.services.index');
 });
-
 Route::get('/standart-deluxe-oda', function () {
     return view('guest.standart-deluxe-oda.index');
 });
+
+Route::prefix('admin')->group(function () {
+    Route::get('/main-page-title-subtitle', [MainPageTitleSubtitleController::class, 'index'])->name('admin.main_page_title_subtitle.index');
+});
+
+Route::get('/admin/homepage', [MainPageTitleSubtitleController::class, 'index'])->name('admin.homepage.index');
+Route::get('/admin/homepage/edit/{id}', [MainPageTitleSubtitleController::class, 'edit'])->name('admin.homepage.edit');
+Route::post('/admin/homepage', [MainPageTitleSubtitleController::class, 'update'])->name('admin.homepage.update');
 
 // guest routes======================
 Route::get('/', [HomeController::class, 'index'])->name('index');

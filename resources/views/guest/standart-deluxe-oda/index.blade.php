@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Gorditas:wght@400;700&family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Gorditas:wght@400;700&family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>Karinna Hotel</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
 
 
 </head>
@@ -94,8 +93,7 @@
         </div>
 
         <div class="d-flex justify-content-start mb-3 mt-3">
-            <button class="btn btn-outline-success border-0 me-3" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#moreFilters" aria-expanded="false" aria-controls="moreFilters">
+            <button class="btn btn-outline-success border-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#moreFilters" aria-expanded="false" aria-controls="moreFilters">
                 Daha Fazla Filtrele
                 <i class="fas fa-chevron-down ms-2"></i>
             </button>
@@ -103,8 +101,7 @@
             <div>
                 <div class="d-flex align-items-center bg-light p-2 border rounded position-relative me-2">
                     <span>2 Yatak </span>
-                    <button class="btn btn-sm btn-link position-absolute top-0 end-0 p-0" type="button"
-                            aria-label="Close" onclick="this.parentElement.remove()">
+                    <button class="btn btn-sm btn-link position-absolute top-0 end-0 p-0" type="button" aria-label="Close" onclick="this.parentElement.remove()">
                         <i class="fas fa-times text-success"></i>
                     </button>
                 </div>
@@ -116,6 +113,8 @@
                 </div>
             </div>
         </div>
+
+
 
 
         <div class="collapse mt-4" id="moreFilters">
@@ -135,7 +134,7 @@
                     const selectedPrice = document.getElementById('selectedPrice');
                     const maxPrice = document.getElementById('maxPrice');
 
-                    priceRange.addEventListener('input', function () {
+                    priceRange.addEventListener('input', function() {
                         selectedPrice.textContent = `${priceRange.value}₺`;
                     });
                 </script>
@@ -147,7 +146,7 @@
                         <label class="form-check-label" for="bed1">1 Yatak</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="bed" id="bed2">
+                        <input class="form-check-input" type="radio"  name="bed" id="bed2">
                         <label class="form-check-label" for="bed2">2 Yatak</label>
                     </div>
                 </div>
@@ -205,6 +204,7 @@
 </div>
 
 
+
 <div class="container">
     <p class="text-title ms-4 my-4">
         <a href="http://localhost/karinna-hotel/" class="text-decoration-none text-custom">
@@ -232,32 +232,61 @@
 </div>
 
 
+
 <div class="container my-5">
     <div class="row">
         <div class="col-md-7">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <!-- Featured Image -->
-                <img src="{{ asset('storage/' . $room->featured_image) }}" class="img-fluid" alt="Oda Resmi">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../assets/img/standart-deluxe-oda/3.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../assets/img/standart-deluxe-oda/3.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../assets/img/standart-deluxe-oda/3.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
 
                 <p class="mt-5 mb-4 text-center fs-5 text-custom">
-                    <img height="40" class="me-3 ms-5" src="../assets/img/icon/manager-1.svg" alt=""> {{ $room->capacity }}
-                    Kapasite
-                    <img height="40" class="me-3 ms-5" src="../assets/img/icon/select-1.svg" alt=""> {{ $room->size }}
-                    cm<sup>2</sup>
+                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/adoption-1.svg" alt="">2 Çocuk
+                    <img height="40" class="me-3 ms-5" src="../assets/img/icon/manager-1.svg" alt=""> 2 Yetişkin
+                    <img height="40" class="me-3 ms-5" src="../assets/img/icon/select-1.svg" alt=""> 45 cm<sup>2</sup>
                 </p>
                 <p class="mt-5 mb-4 text-center fs-5 text-custom">
-                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/hand.svg" alt="">{{ $room->price_per_night }}/Gecelik
-                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/bed.svg" alt=""> {{ $room->bed_count }} Yatak
-                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/bathtub.svg" alt="">{{ $room->bathroom_count }}
-                    Banyo
+                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/hand.svg" alt="">10.500TL/Gecelik
+                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/bed.svg" alt=""> 1 Ebeven Yatağı
+                    <img height="40" class="me-3 ms-3" src="../assets/img/icon/bathtub.svg" alt="">1 Banyo
                 </p>
-                <p class="text-black fs-2 fw-semibold font-family-Barlow m-0 px-3 py-2">Genel Bakış</p>
-                <p class="text-secondary fs-6 fw-medium font-family-Manrope m-0 px-3 py-2">{{ $room->room_description }}</p>
+                <p class="text-black fs-2 fw-semibold font-family-Barlow  m-0 px-3 py-2">Genel Bakış</p>
+                <p class="text-secondary fs-6 fw-medium font-family-Manrope  m-0 px-3 py-2">Lüks odamız beyaz kumlu plajın muhteşem
+                    manzarasını sunmaktadır. Bu oda modern tarzda tasarlanmış, dekore edilmiş ve en lüks olanaklarla donatılmıştır. Küçük lüksler
+                    arasında ücretsiz Wi-Fi, lüks banyo malzemeleri ve 4K teknolojili düz ekran kablo televizyon yer almaktadır.</p>
                 <hr>
                 <div class="container mt-5">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <img src="{{ $room->images }}" alt="Fotoğraf 1" class="img-fluid">
+                            <img src="../assets/img/standart-deluxe-oda/4.png" alt="Fotoğraf 1" class="img-fluid">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <img src="../assets/img/standart-deluxe-oda/4.png" alt="Fotoğraf 2" class="img-fluid">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <img src="../assets/img/standart-deluxe-oda/4.png" alt="Fotoğraf 3" class="img-fluid">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <img src="../assets/img/standart-deluxe-oda/4.png" alt="Fotoğraf 4" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -265,25 +294,26 @@
         </div>
 
         <div class="col-md-5">
-            <p class="fs-6 text-custom mt-3">{{ $room->price_per_night }}/Gecelik</p>
-            <p class="ms-3 text-black fs-1 fw-semibold font-family-Barlow text-uppercase m-0 px-3 py-2">{{ $room->room_type }}</p>
-            <p class="text-secondary fs-6 fw-medium font-family-Manrope m-0 px-3 py-2">{{ $room->room_summary }}</p>
+            <p class="fs-6 text-custom mt-3">10.500TL/Gecelik</p>
+            <p class="ms-3 text-black fs-1 fw-semibold font-family-Barlow text-uppercase  m-0 px-3 py-2">Standart ODa</p>
+            <p class="text-secondary fs-6 fw-medium font-family-Manrope  m-0 px-3 py-2">Kendi özel balkonunuza erişimin keyfini çıkarabileceğiniz oda, size en güzel zamanı yaşatmak için modern ve en lüks ekipmanlarla donatılmıştır.</p>
             <p class="text-black fs-6 fw-medium font-family-Barlow m-0 px-3 py-2 mt-4">Tutulacak Oda Adedi</p>
-            <div class="d-flex mt-4 mb-5">
+            <div class="d-flex mt-4  mb-5">
                 <div class="btn-group me-4">
-                    <select class="btn btn-outline-success dropdown-toggle" id="mySelect">
+                    <select class="btn btn-outline-success dropdown-toggle   " id="mySelect" >
                         <option value="1" selected>Seçenekler</option>
                         <option value="2"> 1</option>
                         <option value="3"> 2</option>
                         <option value="4"> 3</option>
                         <option value="5"> 4</option>
                     </select>
-                </div>
-                <a href="#rezervasyon" class="btn btn-success footer">Rezervasyon Yap</a>
-            </div>
-            <br><br><br>
 
-            <!-- Reservation Form -->
+                </div>
+
+                <a href="#rezervasyon" class="btn btn-success footer">Rezervasyon Yap</a>
+            </div><br><br><br>
+
+
             <div class="container mt-5">
                 <div class="card">
                     <div class="card-header footer text-white text-center">
@@ -293,13 +323,11 @@
                         <form>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="checkin"
-                                           class="form-label text-black fs-6 fw-semibold font-family-Barlow m-0 px-3 py-2">Giriş </label>
+                                    <label for="checkin" class="form-label text-black fs-6 fw-semibold font-family-Barlow  m-0 px-3 py-2">Giriş </label>
                                     <input type="date" class="form-control" id="checkin" name="checkin" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="checkout"
-                                           class="form-label text-black fs-6 fw-semibold font-family-Barlow m-0 px-3 py-2">Çıkış </label>
+                                    <label for="checkout" class="form-label text-black fs-6 fw-semibold font-family-Barlow  m-0 px-3 py-2">Çıkış </label>
                                     <input type="date" class="form-control" id="checkout" name="checkout" required>
                                 </div>
                             </div>
@@ -326,8 +354,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <p class="text-black fs-6 fw-bold font-family-Barlow text-uppercase m-0 px-3 py-2">
-                                    Ekstra ücret</p>
+                                <p class="text-black fs-6 fw-bold font-family-Barlow text-uppercase  m-0 px-3 py-2">Ekstra ücret</p>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -370,8 +397,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <p class="text-black fs-6 fw-bold font-family-Barlow text-uppercase m-0 px-3 py-2">
-                                    Servis</p>
+                                <p class="text-black fs-6 fw-bold font-family-Barlow text-uppercase  m-0 px-3 py-2">Servis</p>
                             </div>
 
                             <div class="row">
@@ -380,41 +406,48 @@
                                         <input class="form-check-input" type="checkbox" id="breakfast" name="breakfast">
                                         <label class="form-check-label" for="breakfast">Oda Kahvaltı</label>
                                     </div>
-                                    <span class="text-dark">2.500 TL</span>
+                                    <span class="text-dark">2.500 TL/gün</span>
                                 </div>
-                            </div>
-
-                            <div class="row">
+                                <hr>
                                 <div class="col-md-12 mb-3 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="dinner" name="dinner">
-                                        <label class="form-check-label" for="dinner">Akşam Yemeği</label>
+                                        <input class="form-check-input" type="checkbox" id="breakfast" name="breakfast">
+                                        <label class="form-check-label" for="breakfast">Akşam Yemeği</label>
                                     </div>
-                                    <span class="text-dark">3.500 TL</span>
+                                    <span class="text-dark">2.500 TL/gün</span>
                                 </div>
-                            </div>
-
-                            <div class="row">
+                                <hr>
                                 <div class="col-md-12 mb-3 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="spa" name="spa">
-                                        <label class="form-check-label" for="spa">Spa</label>
+                                        <input class="form-check-input" type="checkbox" id="breakfast" name="breakfast">
+                                        <label class="form-check-label" for="breakfast">Kayak Merkezi</label>
                                     </div>
-                                    <span class="text-dark">1.500 TL</span>
+                                    <span class="text-dark">2.500 TL/gün</span>
                                 </div>
-                            </div>
-
-                            <div class="row">
+                                <hr>
                                 <div class="col-md-12 mb-3 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="wifi" name="wifi">
-                                        <label class="form-check-label" for="wifi">Wi-Fi</label>
+                                        <input class="form-check-input" type="checkbox" id="breakfast" name="breakfast">
+                                        <label class="form-check-label" for="breakfast">Gym ve Spa</label>
                                     </div>
-                                    <span class="text-dark">750 TL</span>
+                                    <span class="text-dark">2.500 TL/gün</span>
                                 </div>
+                                <hr>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-block">Rezervasyon Yap</button>
+
+
+                            <div class="col-md-12 mt-5 d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <p class="text-secondary fs-6 fw-medium font-family-Barlow mb-0 ">Toplam</p>
+                                    <p class="text-custom fs-2 fw-semibold font-family-Barlow  ">10.500 TL</p>
+
+                                </div>
+                                <a href="/control-screen" class="btn btn-success footer w-50">
+                                    Seç
+                                </a>
+
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -422,7 +455,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="container mt-5">
     <div class="row">
@@ -496,8 +528,12 @@
         </div>
 
 
+
+
     </div>
 </div>
+
+
 
 
 @include('guest.includes.footer')

@@ -7,7 +7,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Slider Galeri Yönetimi</h1>
+                            <h1>Slider Galeri Yönetimi yes</h1>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
@@ -60,9 +60,22 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                 </span>
                             </div>
+                         
+                            <?php if($id == 4): ?>
+                               
+                            <div class="mb-5">
+                                <select name="filters[]" class="selectpicker" multiple data-live-search="true" title='filtreleme etiketi'>
+                                   <?php $__currentLoopData = $filters; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $filter): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                       <option value="<?php echo e($filter->id); ?>"><?php echo e($filter->name); ?></option>
+                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>      
+                                 </select>
+                           </div>
+                            <?php endif; ?>
+                          
                             <button type="submit" class="btn btn-primary btn-sm">Kaydet</button>
                             <a href="/admin/slider/destroy/<?php echo e($id); ?>" class="btn btn-danger btn-sm"
                                 onclick="return confirm('Emin Misiniz ?')">Tümünü Sil</a>
+                                
                         </form>
 
 
@@ -112,7 +125,9 @@ unset($__errorArgs, $__bag); ?>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('js'); ?>
     <script type="text/javascript">
+
         $(function() {
+            $('select').selectpicker();
             $("#priority-list").sortable({
                 stop: setPriority
             });
