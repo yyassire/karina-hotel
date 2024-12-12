@@ -302,9 +302,6 @@ img {
 .footer-icons {
     color: inherit;
     text-decoration: none;
-}
-
-.footer-icons i {
     color: #fff;
 }
 
@@ -312,4 +309,12 @@ img {
     filter: none;
 }
 
+.contact-icons {
+    color: inherit !important;
+    text-decoration: none !important;
+    color: #fff !important;
+}
 
+.contact-icons img {
+    filter: none !important;
+}
