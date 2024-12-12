@@ -50,11 +50,8 @@
           <div class="mb-3 mb-sm-0">
             <h6 class="mb-0 text-title ms-2">Hotel Tipi</h6>
             <select class="form-select border-0 focus-ring-0" id="mySelect" aria-label="Otel 1 Seçimi">
-                <option value="otel1" selected>Orman Evleri</option>
-                <option value="otel2">Otel 2</option>
-                <option value="otel3">Otel 3</option>
-                <option value="otel4">Otel 4</option>
-                <option value="otel5">Otel 5</option>
+                <option value="1" selected>Karinna Evleri</option>
+                <option value="2" >Orman Evleri</option>             
             </select>
         </div>
 
@@ -114,7 +111,7 @@
         </div>
     </div>
 </div>
-<div class=""><?php echo e($rooms); ?></div>
+
 <div class="container-fluid">
   <div class="row">
       <div class="col-12 col-md-4 text-center p-4">
@@ -174,12 +171,13 @@
     </div>
   </div>
 
-    <div class="container">
+    <div class="container" style="overflow-x: hidden">
+        <?php if(null !== $rooms  && count($rooms) > 0): ?>
+
         <div class="row">
-            <div class="col-12 col-md-6 text-center text-md-start">
+            <div class="col-12 col-md-6 text-center text-md-start box1">
                 <div class="position-relative">
                     <a href="/standart-deluxe-oda">
-                        
                         <img src="<?php echo e($rooms[0]->featured_image); ?>" class="img-fluid rounded-3" alt="Resim Sol" style="width: 100%">
                     </a>
                     <a href="/standart-deluxe-oda">
@@ -189,7 +187,7 @@
                         </h3>
                     </a>
                     <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 px-3 py-2 px-1 rounded-2">
-                        <img class="me-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
+                      
                         <img class="me-2 ms-3" src="assets/img/icon/2.svg" alt=""> <?php echo e($rooms[0]->capacity); ?> kapasite
                         <img class="me-2 ms-3" src="assets/img/icon/3.svg" alt="">  <?php echo e($rooms[0]->size); ?> cm<sup>2</sup>
                     </p>
@@ -197,20 +195,20 @@
             </div>
 
 
-            <div class="col-12 col-md-6">
-                <?php if(null !== $rooms  && count($rooms) > 0): ?>
+            <div class="col-12 col-md-6 box2">
+                
                     
-                <div class="row">
+                <div class="row ">
                     <?php
                         // check if rooms count is less than 5
                         $roomsCount = count($rooms) < 5 ? count($rooms) : 5;
                          
                     ?>
                     <?php for($i = 1;  $i < $roomsCount ; $i++): ?>
-                    <div class="col-6 col-md-6 text-center text-md-start">
+                    <div class="col-6 col-md-6 text-center text-md-start mb-3 ">
                         <div class="position-relative">
                             <a href="/standart-deluxe-oda">
-                                <img src="<?php echo e($rooms[$i]->featured_image); ?>" class="img-fluid" alt="Resim Sol">
+                                <img src="<?php echo e($rooms[$i]->featured_image); ?>" class="img-fluid rounded-2" alt="Resim Sol">
                             </a>
                             <a href="/standart-deluxe-oda">
                                 <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room" >
@@ -219,7 +217,7 @@
                                 </h3>
                             </a>
                             <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 py-1 px-2 rounded-2 small d-none d-md-block">
-                                <img class="me-1 ms-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
+                               
                                 <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> <?php echo e($rooms[$i]->capacity); ?> kapasite
                                 <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt="">  <?php echo e($rooms[$i]->size); ?> cm cm<sup>2</sup>
                             </p>
@@ -229,18 +227,14 @@
                     <?php endfor; ?>
                   
 
-                    
-
-                    
-
-                    
                    
                 </div>
-                <?php endif; ?>
+                
             </div>
         </div>
+        <?php endif; ?>
     </div>
-
+  
 
 
 <div class="container my-5">
@@ -388,6 +382,43 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+    // use a script tag or an external JS file
+    document.addEventListener("DOMContentLoaded", (event) => {
+     gsap.registerPlugin(ScrollTrigger)
+     gsap.from(".box1", {
+    scrollTrigger: {
+        trigger: ".box1",       // Element that triggers the animation
+        start: "top 80%",      // Start when the top of the box reaches 75% of the viewport
+        end: "bottom 20%",       // End when the bottom of the box reaches 25% of the viewport
+        // markers: true,        
+    },
+    x: "-100%",                            
+    duration: 1.5, 
+    opcacity: 0,           
+    ease: "power2.out"  
+});
+gsap.from(".box2", {
+    scrollTrigger: {
+        trigger: ".box2",       // Element that triggers the animation
+        start: "top 80%",      // Start when the top of the box reaches 75% of the viewport
+        end: "bottom 20%",       // End when the bottom of the box reaches 25% of the viewport
+        // markers: true,        
+    },
+    opcacity: 0,
+    x: "100%",                            
+    duration: 1.5,            
+    ease: "power2.out"  
+});
+    });
+   
+   </script>
+
 
 </html>
 <?php /**PATH C:\MAMP\htdocs\karinnahotel.com\resources\views/guest/index.blade.php ENDPATH**/ ?>

@@ -33,8 +33,8 @@ class CreateActuRoomsTable extends Migration
             $table->json('images')->nullable(); // 
             $table->string('view')->nullable(); // e.g., Sea View, Garden View
             $table->decimal('size', 8, 2)->nullable(); // Size in square meters:done
-            // $table->boolean('is_smoking_allowed')->default(false);
-            // $table->boolean('has_accessibility_features')->default(false); // For disabled access
+            // $table->date("init_date")->nullable();
+            // $table->date("end_date")->nullable();
             $table->timestamps();
             $table->softDeletes(); // For tracking if the room is removed but not permanently deleted
             $table->json('various_rooms_numb')->nullable(); // number of rooms each room contian:done

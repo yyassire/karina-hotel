@@ -4,6 +4,7 @@ namespace App\Http\Controllers\guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActuRoom;
+use App\Models\Service;
 use App\Models\Slider;
 use App\Models\SliderFilter;
 use App\Models\MainPageTitleSubtitle;
@@ -36,14 +37,17 @@ class HomeController extends Controller
 
     public function reservation()
     {
-        $rooms = ActuRoom::all();
+        $rooms = ActuRoom::paginate(6);
         return view('guest.reservation.index', compact('rooms'));
     }
 
     public function standart_deluxe_oda($id)
     {
         $room = ActuRoom::findOrFail($id);
-        return view('guest.standart-deluxe-oda.index', compact('room'));
+        $rooms = ActuRoom::where('preferred_room', 1)
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
+        return view('guest.standart-deluxe-oda.index', compact('room', 'rooms'));
     }
 }
-

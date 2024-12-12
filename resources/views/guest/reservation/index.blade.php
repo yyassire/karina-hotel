@@ -148,8 +148,11 @@
     </div>
 </div>
 
+    <div class="container my-5" style="display: flex;align-items: center;justify-content: center">
+        {{ $rooms->links('pagination::bootstrap-4') }}
+    </div>
 
-<div class="container my-5">
+{{-- <div class="container my-5">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item">
@@ -168,7 +171,7 @@
             </li>
         </ul>
     </nav>
-</div>
+</div> --}}
 
 
 @include('guest.includes.footer')

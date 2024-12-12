@@ -48,7 +48,7 @@
 
 <div class="container my-5 bg-white shadow">
     <h3 class="mb-4"></h3>
-
+{{-- filtering --}}
     <div class="form-group p-4 ">
 
         <div class="d-flex flex-wrap justify-content-between ">
@@ -451,5 +451,42 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{{-- gsap --}}
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+    // use a script tag or an external JS file
+    document.addEventListener("DOMContentLoaded", (event) => {
+     gsap.registerPlugin(ScrollTrigger)
+     gsap.from(".box1", {
+    scrollTrigger: {
+        trigger: ".box1",       // Element that triggers the animation
+        start: "top 80%",      // Start when the top of the box reaches 75% of the viewport
+        end: "bottom 20%",       // End when the bottom of the box reaches 25% of the viewport
+        // markers: true,        
+    },
+    x: "-100%",                            
+    duration: 1.5, 
+    opcacity: 0,           
+    ease: "power2.out"  
+});
+gsap.from(".box2", {
+    scrollTrigger: {
+        trigger: ".box2",       // Element that triggers the animation
+        start: "top 80%",      // Start when the top of the box reaches 75% of the viewport
+        end: "bottom 20%",       // End when the bottom of the box reaches 25% of the viewport
+        // markers: true,        
+    },
+    opcacity: 0,
+    x: "100%",                            
+    duration: 1.5,            
+    ease: "power2.out"  
+});
+    });
+   
+   </script>
+{{-- gsap end --}}
 
 </html>
