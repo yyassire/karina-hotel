@@ -75,9 +75,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/main-page-title-subtitle', [MainPageTitleSubtitleController::class, 'index'])->name('admin.main_page_title_subtitle.index');
 });
 
-Route::get('/admin/homepage', [MainPageTitleSubtitleController::class, 'index'])->name('admin.homepage.index');
-Route::get('/admin/homepage/edit/{id}', [MainPageTitleSubtitleController::class, 'edit'])->name('admin.homepage.edit');
-Route::post('/admin/homepage', [MainPageTitleSubtitleController::class, 'update'])->name('admin.homepage.update');
+
 
 // guest routes======================
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -190,6 +188,7 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
     });
 
 
+    // working hours
     Route::group(['namespace' => 'homepage', 'prefix' => 'homepage', 'as' => 'homepage.'], function () {
         Route::get('/', [\App\Http\Controllers\admin\HomepageController::class, 'index'])->name('index');
         Route::post('/edit/{id}', [\App\Http\Controllers\admin\HomepageController::class, 'update'])->name('update');
@@ -286,5 +285,12 @@ Route::group(['namespace' => 'admin', 'prefix' => 'admin', 'as' => 'admin.', 'mi
         Route::post('/ajaxdesk', [\App\Http\Controllers\admin\PageDetailGalleryController::class, 'ajaxdesk'])->name('ajaxdesk');
         Route::post('/add', [\App\Http\Controllers\admin\PageDetailGalleryController::class, 'store'])->name('store');
         Route::get('/delete/{id}/{page_detail_id}', [\App\Http\Controllers\admin\PageDetailGalleryController::class, 'delete'])->name('delete');
+    });
+    // service
+    Route::group(['namespace' => 'service', 'prefix' => 'service', 'as' => 'service.'], function () {
+        Route::get('/', [\App\Http\Controllers\admin\ServiceController::class, 'index'])->name('index');
+        // Route::post('/ajaxdesk', [\App\Http\Controllers\admin\PageGalleryController::class, 'ajaxdesk'])->name('ajaxdesk');
+        Route::post('/add', [\App\Http\Controllers\admin\ServiceController::class, 'store'])->name('store');
+        Route::get('/delete/{id}/', [\App\Http\Controllers\admin\ServiceController::class, 'delete'])->name('delete');
     });
 });

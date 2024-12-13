@@ -18,36 +18,34 @@
 
                             <div class="card-body">
                                 <form method="post"
-                                    enctype="multipart/form-data">
-
+                                    enctype="multipart/form-data" action="{{ route('admin.homepage.update', ['id' => $data?->id]) }}">
                                     @csrf
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="inputTitleTr">Title TR</label>
-                                                <input type="text" name="title" class="form-control" value="{{ $data->title }}">
+                                                <input type="text" name="title" class="form-control" value="{{ $data?->title }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputSubtitleTr">Subtitle TR</label>
-                                                <input type="text" name="subtitle" class="form-control" value="{{ $data->subtitle }}">
+                                                <input type="text" name="subtitle" class="form-control" value="{{ $data?->subtitle }}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="inputTitleEn">Title EN</label>
-                                                <input type="text" name="title_en" class="form-control" value="{{ $data->title_en }}">
+                                                <input type="text" name="title_en" class="form-control" value="{{ $data?->title_en }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputSubtitleEn">Subtitle EN</label>
-                                                <input type="text" name="subtitle_en" class="form-control" value="{{ $data->subtitle_en }}">
+                                                <input type="text" name="subtitle_en" class="form-control" value="{{ $data?->subtitle_en }}">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="inputVideoUrl">Video URL</label>
-                                        <input type="text" name="video_url" class="form-control" value="{{ $data->video_url }}">
+                                        <input type="text" name="video_url" class="form-control" value="{{ $data?->video_url }}">
                                     </div>
 
                                     <button type="submit" class="btn btn-success">Güncelle</button>

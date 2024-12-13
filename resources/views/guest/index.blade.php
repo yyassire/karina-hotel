@@ -21,27 +21,23 @@
 <body>
 
 <div class="video-background">
-    @foreach($titles as $title)
         <iframe
-            src="{{ $title->video_url }}?autoplay=1&mute=1&loop=1&playlist={{ $title->video_url }}&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
+            src="{{ $data->video_url }}?autoplay=1&mute=1&loop=1&playlist={{ $data->video_url }}&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
         </iframe>
-    @endforeach
 </div>
 
 @include('guest.includes.header')
 
 <div class="container-hotel text-center text-white d-flex flex-column justify-content-end my-5" style="min-height: 55vh;">
-    @foreach($titles as $title)
-        <!-- Başlık ve Alt Başlık Türkçe Olarak Gösterilecek -->
+        
         <h1 id="headline" class="fw-400 my-3 writing d position-relative hidden ">
             <img src="assets/img/Component.svg" class="img-fluid shadow-circle">
-            {{ $title->title }} <br>
+            {{ $data->title }} <br>
         </h1>
         <p id="paragraph" class="text-dark hidden mt-3">
-            {{ $title->subtitle }}
+            {{ $data->subtitle }}
         </p>
-    @endforeach
 </div>
 
 <br>
@@ -186,7 +182,7 @@
         </div>
     </div>
 </div>
-
+@if (null !== $rooms  && count($rooms) > 0)
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-6 text-center text-md-start">
@@ -212,7 +208,7 @@
 
 
         <div class="col-12 col-md-6">
-            @if (null !== $rooms  && count($rooms) > 0)
+            {{-- @if (null !== $rooms  && count($rooms) > 0) --}}
 
                 <div class="row">
                     @php
@@ -243,69 +239,12 @@
                         </div>
                     @endfor
 
-
-                    {{-- <div class="col-6 col-md-6 text-center text-md-start">
-                        <div class="position-relative">
-                            <a href="/standart-deluxe-oda">
-                                <img src="assets/img/rooms/2.png" class="img-fluid" alt="Resim Sol">
-                            </a>
-                            <a href="/standart-deluxe-oda">
-                                <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room" >
-                                    Deluxe Suit Odası
-                                </h3>
-                            </a>
-                            <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 py-1 px-2 rounded-2 small d-none d-md-block">
-                                <img class="me-1 ms-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
-                                <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> 2 Yetişkin
-                                <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt=""> 35 cm<sup>2</sup>
-                            </p>
-
-                        </div>
-                    </div> --}}
-
-                    {{-- <div class="col-6 col-md-6 text-center text-md-start mt-4">
-                        <div class="position-relative">
-                            <a href="/standart-deluxe-oda">
-                                <img src="assets/img/rooms/2.png" class="img-fluid" alt="Resim Sol">
-                            </a>
-                            <a href="/standart-deluxe-oda">
-                                <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room" >
-                                    Deluxe Suit Odası
-                                </h3>
-                            </a>
-                            <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 py-1 px-2 rounded-2 small d-none d-md-block">
-                                <img class="me-1 ms-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
-                                <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> 2 Yetişkin
-                                <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt=""> 35 cm<sup>2</sup>
-                            </p>
-
-                        </div>
-                    </div> --}}
-
-                    {{-- <div class="col-6 col-md-6 text-center text-md-start mt-4">
-                        <div class="position-relative">
-                            <a href="/standart-deluxe-oda">
-                                <img src="assets/img/rooms/2.png" class="img-fluid" alt="Resim Sol">
-                            </a>
-                            <a href="/standart-deluxe-oda">
-                                <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room" >
-                                    Deluxe Suit Odası
-                                </h3>
-                            </a>
-                            <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 py-1 px-2 rounded-2 small d-none d-md-block">
-                                <img class="me-1 ms-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
-                                <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> 2 Yetişkin
-                                <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt=""> 35 cm<sup>2</sup>
-                            </p>
-
-                        </div>
-                    </div> --}}
-
                 </div>
-            @endif
+            {{-- @endif --}}
         </div>
     </div>
 </div>
+@endif
 
 
 <div class="container my-5">
@@ -326,52 +265,71 @@
     </div>
 </div>
 
-
+{{-- doing this --}}
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-4  d-flex flex-wrap justify-content-center">
+
             <div>
+                @foreach ($service_categories as $service_category )
+                    
+               
                 <div class="card card-1 border-0 mb-3" onclick="showImage('restaurant')" style="cursor: pointer;">
                     <div class="card-body text-center rounded-2">
                         <h5 class="card-title">
-                            <img class="me-2" src="assets/img/icon/4.svg" alt="">RESTAURANT
+                            <img class="me-2" src="assets/img/icon/{{$service_category->icon}}" alt="">{{$service_category->name}}
                         </h5>
+                        @if (isset($service_category) && $service_category->sub_name)
+                        <span class="card-text mt-n2">{{ $service_category->sub_name}}</span>
+                            
+                        @endif
+                      
                     </div>
                 </div>
 
-                <div class="card card-1 mb-3 border-0" onclick="showImage('room')" style="cursor: pointer;">
+                {{-- <div class="card card-1 mb-3 border-0" onclick="showImage('room')" style="cursor: pointer;">
                     <div class="card-body text-center">
                         <h5 class="card-title mb-0">
                             <img class="me-2" src="assets/img/icon/5.svg" alt="">En Yeni Odalar
                         </h5>
                         <span class="card-text mt-n2">Lüks</span>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="card card-1 mb-3 border-0" onclick="showImage('spa')" style="cursor: pointer;">
+                {{-- <div class="card card-1 mb-3 border-0" onclick="showImage('spa')" style="cursor: pointer;">
                     <div class="card-body text-center">
                         <h5 class="card-title">
                             <img class="me-2" src="assets/img/icon/6.svg" alt="">SPA & Masaj
                         </h5>
                         <span class="card-text mt-n2">Devamlı Açık</span>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="card card-1 mb-3 border-0" onclick="showImage('pool')" style="cursor: pointer;">
+                {{-- <div class="card card-1 mb-3 border-0" onclick="showImage('pool')" style="cursor: pointer;">
                     <div class="card-body text-center">
                         <h5 class="card-title">
                             <img class="me-2" src="assets/img/icon/7.svg" alt="">Yüzme Havuzu
                         </h5>
                         <span class="card-text mt-n2">Devamlı Açık</span>
                     </div>
-                </div>
+                </div> --}}
+                @endforeach
             </div>
         </div>
-
+{{-- start of the corosol --}}
         <div class="col-12 col-md-7">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" id="carouselImages">
                     <div class="carousel-item active">
+                        <img src="assets/img/karinnahotel/4.png" class="d-block w-100" alt="Restaurant Image">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="assets/img/karinnahotel/4.png" class="d-block w-100" alt="Restaurant Image">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="assets/img/karinnahotel/4.png" class="d-block w-100" alt="Restaurant Image">
+                    </div>
+                    <div class="carousel-item ">
                         <img src="assets/img/karinnahotel/4.png" class="d-block w-100" alt="Restaurant Image">
                     </div>
                 </div>
@@ -387,6 +345,8 @@
                 </button>
             </div>
         </div>
+{{-- end of the corosol --}}
+
     </div>
 </div>
 

@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-h1HdACFTHoj++o7mdO+z7gNe29wJlS9yM8OVmP8R3D0p7fkg8pZa5UMDOhdtjlH3z" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-h1HdACFTHoj++o7mdO+z7gNe29wJlS9yM8OVmP8R3D0p7fkg8pZa5UMDOhdtjlH3z"
+            crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -11,34 +13,35 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/main.css')); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Gorditas:wght@400;700&family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Gorditas:wght@400;700&family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
     <title>Karinna Hotel</title>
 </head>
 <body>
 
-    <div class="video-background " >
-        <iframe src="https://www.youtube.com/embed/mnC65j3FWqM?autoplay=1&mute=1&loop=1&playlist=mnC65j3FWqM&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+<div class="video-background">
+        <iframe
+            src="<?php echo e($data->video_url); ?>?autoplay=1&mute=1&loop=1&playlist=<?php echo e($data->video_url); ?>&controls=0&rel=0&modestbranding=1&iv_load_policy=3"
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+</div>
 
-    <?php echo $__env->make('guest.includes.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+<?php echo $__env->make('guest.includes.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <div class="container-hotel text-center text-white d-flex flex-column justify-content-end my-5" style="min-height: 55vh;">
-  <h1 id="headline" class="fw-400 my-3 writing d position-relative hidden " >
-    <img src="assets/img/Component.svg" class="img-fluid  shadow-circle">
-        Uludağ’da Unutulmaz <br> Bir, Tatil İçin Sizleri <br> Karinna’ya Bekliyoruz
-  </h1>
-  <p id="paragraph" class="text-dark hidden mt-3">
-      Türkiye’nin en popüler kayak merkezi Uludağ’ın zirvesinde yer alan Karinna <br>
-      Hotel Convention Center & SPA seçkin mimarisi ve üstün hizmet anlayışıyla <br>
-      Uludağ keyfini sınırsızca misafirlerine yaşatıyor. Karinna Hotel Convention <br>
-      Center & SPA, Uludağ’ın büyüleyici manzarasını sıcak odalarında yaşatıyor. <br>
-      10 katlı otelin her cephesi farklı bir manzaraya sahiptir.
-  </p>
-</div><br>
+        
+        <h1 id="headline" class="fw-400 my-3 writing d position-relative hidden ">
+            <img src="assets/img/Component.svg" class="img-fluid shadow-circle">
+            <?php echo e($data->title); ?> <br>
+        </h1>
+        <p id="paragraph" class="text-dark hidden mt-3">
+            <?php echo e($data->subtitle); ?>
 
+        </p>
+</div>
 
+<br>
 
 <div class="container my-5 bg-white shadow">
     <h3 class="mb-4"></h3>
@@ -47,13 +50,16 @@
 
         <div class="d-flex flex-wrap justify-content-between ">
 
-          <div class="mb-3 mb-sm-0">
-            <h6 class="mb-0 text-title ms-2">Hotel Tipi</h6>
-            <select class="form-select border-0 focus-ring-0" id="mySelect" aria-label="Otel 1 Seçimi">
-                <option value="1" selected>Karinna Evleri</option>
-                <option value="2" >Orman Evleri</option>             
-            </select>
-        </div>
+            <div class="mb-3 mb-sm-0">
+                <h6 class="mb-0 text-title ms-2">Hotel Tipi</h6>
+                <select class="form-select border-0 focus-ring-0" id="mySelect" aria-label="Otel 1 Seçimi">
+                    <option value="otel1" selected>Orman Evleri</option>
+                    <option value="otel2">Otel 2</option>
+                    <option value="otel3">Otel 3</option>
+                    <option value="otel4">Otel 4</option>
+                    <option value="otel5">Otel 5</option>
+                </select>
+            </div>
 
             <div class="vr d-none d-sm-block"></div>
 
@@ -61,10 +67,10 @@
                 <h6 class="mb-0 text-title ms-2">Giriş</h6>
                 <select class="form-select  border-0" id="mySelect" aria-label="Otel 2 Seçimi">
                     <option value="otel1" selected>24 Kasım 2024</option>
-                    <option value="otel2">Otel 2 </option>
-                    <option value="otel3">Otel 3 </option>
-                    <option value="otel4">Otel 4 </option>
-                    <option value="otel5">Otel 5 </option>
+                    <option value="otel2">Otel 2</option>
+                    <option value="otel3">Otel 3</option>
+                    <option value="otel4">Otel 4</option>
+                    <option value="otel5">Otel 5</option>
                 </select>
             </div>
 
@@ -74,10 +80,10 @@
                 <h6 class="mb-0 text-title ms-2">Çıkış</h6>
                 <select class="form-select border-0" id="otelSeç3" aria-label="Otel 3 Seçimi">
                     <option value="otel1" selected>25 Kasım 2024</option>
-                    <option value="otel2">Otel 2 </option>
-                    <option value="otel3">Otel 3 </option>
-                    <option value="otel4">Otel 4 </option>
-                    <option value="otel5">Otel 5 </option>
+                    <option value="otel2">Otel 2</option>
+                    <option value="otel3">Otel 3</option>
+                    <option value="otel4">Otel 4</option>
+                    <option value="otel5">Otel 5</option>
                 </select>
             </div>
 
@@ -87,9 +93,9 @@
                 <h6 class="mb-0 text-title ms-2">Oda Tipi</h6>
                 <select class="form-select border-0" id="otelSeç4" aria-label="Otel 4 Seçimi">
                     <option value="otel1" selected>King Orman Evi</option>
-                    <option value="otel2">Otel 2 </option>
-                    <option value="otel3">Otel 3 </option>
-                    <option value="otel4">Otel 4 </option>
+                    <option value="otel2">Otel 2</option>
+                    <option value="otel3">Otel 3</option>
+                    <option value="otel4">Otel 4</option>
                     <option value="otel5">Otel 5
 
 
@@ -101,277 +107,284 @@
 
             <div class="mb-3 mb-sm-0 mt-2">
 
-            <a href="/reservation" class="btn btn-success footer w-100 d-flex align-items-center justify-content-center">
-                 Bul
-                 <i class="fas fa-arrow-up ms-2" style="transform: rotate(45deg);"></i>
-             </a>
+                <a href="/reservation"
+                   class="btn btn-success footer w-100 d-flex align-items-center justify-content-center">
+                    Bul
+                    <i class="fas fa-arrow-up ms-2" style="transform: rotate(45deg);"></i>
+                </a>
 
 
             </div>
         </div>
     </div>
 </div>
-
 <div class="container-fluid">
-  <div class="row">
-      <div class="col-12 col-md-4 text-center p-4">
-          <h3 class="fs-1"> <span id="activity-count">1 </span>+</h3>
-          <p class="text-center text-secondary fs-6 fw-semibold font-family-Barlow text-uppercase m-0 px-3 py-2">Aktiviteler</p>
-      </div>
+    <div class="row">
+        <div class="col-12 col-md-4 text-center p-4">
+            <h3 class="fs-1"><span id="activity-count">1 </span>+</h3>
+            <p class="text-center text-secondary fs-6 fw-semibold font-family-Barlow text-uppercase m-0 px-3 py-2">
+                Aktiviteler</p>
+        </div>
 
-      <div class="col-12 col-md-4 text-center p-4">
-          <h3 class="fs-1"> <span id="room-count">1</span>+</h3>
-          <p class="text-center text-secondary fs-6 fw-semibold font-family-Barlow text-uppercase m-0 px-3 py-2">Farklı Oda</p>
-      </div>
+        <div class="col-12 col-md-4 text-center p-4">
+            <h3 class="fs-1"><span id="room-count">1</span>+</h3>
+            <p class="text-center text-secondary fs-6 fw-semibold font-family-Barlow text-uppercase m-0 px-3 py-2">
+                Farklı Oda</p>
+        </div>
 
-      <div class="col-12 col-md-4 text-center p-4">
-          <h3 class="fs-1"> <span id="happy-customer-count">1</span>+</h3>
-          <p class="text-center text-secondary fs-6 fw-semibold font-family-Barlow text-uppercase m-0 px-3 py-2">Mutlu Müşteri</p>
-      </div>
-  </div>
+        <div class="col-12 col-md-4 text-center p-4">
+            <h3 class="fs-1"><span id="happy-customer-count">1</span>+</h3>
+            <p class="text-center text-secondary fs-6 fw-semibold font-family-Barlow text-uppercase m-0 px-3 py-2">Mutlu
+                Müşteri</p>
+        </div>
+    </div>
 </div>
 
 
 <div class="container d-flex justify-content-center align-items-center  ">
-  <div class="card mb-3 shadow border-0"  >
-      <div class="row g-0">
-        <div class="col-md-6">
-            <a href="/gallery">
-              <img src="assets/img/karinnahotel/3.png" class="img-fluid rounded-start" alt="...">
-            </a>
-          </div>
+    <div class="card mb-3 shadow border-0">
+        <div class="row g-0">
+            <div class="col-md-6">
+                <a href="/gallery">
+                    <img src="assets/img/karinnahotel/3.png" class="img-fluid rounded-start" alt="...">
+                </a>
+            </div>
 
-          <div class="col-md-6">
-              <div class="card-body ">
-                <p class="text-black fs-1 fw-semibold font-family-Barlow  m-0 px-3 py-2">Karinna Otel, Bir<br/>konaklamadan daha  <br>fazlası</p>
-                <p class="text-dark fs-6 fw-medium font-family-Manrope  m-0 px-3 py-2">Türkiye’nin en popüler kayak merkezi Uludağ’ın <br>
-                   zirvesinde yer alan Karinna Hotel Convention <br> Center & SPA seçkin mimarisi ve üstün hizmet  <br>anlayışıyla Uludağ keyfini sınırsızca misafirlerine <br> yaşatıyor.</p>
-              </div>
-          </div>
-      </div>
-  </div>
+            <div class="col-md-6">
+                <div class="card-body ">
+                    <p class="text-black fs-1 fw-semibold font-family-Barlow  m-0 px-3 py-2">Karinna Otel, Bir<br/>konaklamadan
+                        daha <br>fazlası</p>
+                    <p class="text-dark fs-6 fw-medium font-family-Manrope  m-0 px-3 py-2">Türkiye’nin en popüler kayak
+                        merkezi Uludağ’ın <br>
+                        zirvesinde yer alan Karinna Hotel Convention <br> Center & SPA seçkin mimarisi ve üstün hizmet
+                        <br>anlayışıyla Uludağ keyfini sınırsızca misafirlerine <br> yaşatıyor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
- <div class="container my-5">
+<div class="container my-5">
     <div class="row">
         <div class="col-md-6 d-flex align-items-center justify-content-start ">
-          <p class="text-black fs-2 fw-semibold font-family-Barlow text-uppercase  m-0 px-3 py-2">Tercİh Edilen ODaLar</p>
+            <p class="text-black fs-2 fw-semibold font-family-Barlow text-uppercase  m-0 px-3 py-2">Tercİh Edilen
+                ODaLar</p>
 
-      </div>
+        </div>
 
-      <div class="col-md-6">
-        <p class="text-end text-color me-5">
-          <a href="/standart-deluxe-oda" class="text-decoration-none text-color">
-            Detaylı Gör<i class="fas fa-arrow-right ms-2"></i>
-          </a>
-        </p>
+        <div class="col-md-6">
+            <p class="text-end text-color me-5">
+                <a href="/standart-deluxe-oda" class="text-decoration-none text-color">
+                    Detaylı Gör<i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </p>
 
+        </div>
     </div>
-    </div>
-  </div>
-
-    <div class="container" style="overflow-x: hidden">
-        <?php if(null !== $rooms  && count($rooms) > 0): ?>
-
-        <div class="row">
-            <div class="col-12 col-md-6 text-center text-md-start box1">
-                <div class="position-relative">
-                    <a href="/standart-deluxe-oda">
-                        <img src="<?php echo e($rooms[0]->featured_image); ?>" class="img-fluid rounded-3" alt="Resim Sol" style="width: 100%">
-                    </a>
-                    <a href="/standart-deluxe-oda">
-                        <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2" style="bottom: 50px;">
-                            <?php echo e($rooms[0]->name); ?>
-
-                        </h3>
-                    </a>
-                    <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 px-3 py-2 px-1 rounded-2">
-                      
-                        <img class="me-2 ms-3" src="assets/img/icon/2.svg" alt=""> <?php echo e($rooms[0]->capacity); ?> kapasite
-                        <img class="me-2 ms-3" src="assets/img/icon/3.svg" alt="">  <?php echo e($rooms[0]->size); ?> cm<sup>2</sup>
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="col-12 col-md-6 box2">
-                
+</div>
+<?php if(null !== $rooms  && count($rooms) > 0): ?>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 text-center text-md-start">
+            <div class="position-relative">
+                <a href="/standart-deluxe-oda">
                     
-                <div class="row ">
+                    <img src="<?php echo e($rooms[0]->featured_image); ?>" class="img-fluid rounded-3" alt="Resim Sol"
+                         style="width: 100%">
+                </a>
+                <a href="/standart-deluxe-oda">
+                    <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2"
+                        style="bottom: 50px;">
+                        <?php echo e($rooms[0]->name); ?>
+
+                    </h3>
+                </a>
+                <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 px-3 py-2 px-1 rounded-2">
+                    <img class="me-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
+                    <img class="me-2 ms-3" src="assets/img/icon/2.svg" alt=""> <?php echo e($rooms[0]->capacity); ?> kapasite
+                    <img class="me-2 ms-3" src="assets/img/icon/3.svg" alt=""> <?php echo e($rooms[0]->size); ?> cm<sup>2</sup>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-md-6">
+            
+
+                <div class="row">
                     <?php
                         // check if rooms count is less than 5
                         $roomsCount = count($rooms) < 5 ? count($rooms) : 5;
-                         
+
                     ?>
                     <?php for($i = 1;  $i < $roomsCount ; $i++): ?>
-                    <div class="col-6 col-md-6 text-center text-md-start mb-3 ">
-                        <div class="position-relative">
-                            <a href="/standart-deluxe-oda">
-                                <img src="<?php echo e($rooms[$i]->featured_image); ?>" class="img-fluid rounded-2" alt="Resim Sol">
-                            </a>
-                            <a href="/standart-deluxe-oda">
-                                <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room" >
-                                    <?php echo e($rooms[$i]->name); ?>
+                        <div class="col-6 col-md-6 text-center text-md-start">
+                            <div class="position-relative">
+                                <a href="/standart-deluxe-oda">
+                                    <img src="<?php echo e($rooms[$i]->featured_image); ?>" class="img-fluid" alt="Resim Sol">
+                                </a>
+                                <a href="/standart-deluxe-oda">
+                                    <h3 class="position-absolute start-0 text-white bg-opacity-50 px-3 py-2 rounded-2  title-room">
+                                        <?php echo e($rooms[$i]->name); ?>
 
-                                </h3>
-                            </a>
-                            <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 py-1 px-2 rounded-2 small d-none d-md-block">
-                               
-                                <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> <?php echo e($rooms[$i]->capacity); ?> kapasite
-                                <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt="">  <?php echo e($rooms[$i]->size); ?> cm cm<sup>2</sup>
-                            </p>
+                                    </h3>
+                                </a>
+                                <p class="position-absolute bottom-0 start-0 text-white bg-white bg-opacity-10 py-1 px-2 rounded-2 small d-none d-md-block">
+                                    <img class="me-1 ms-2" src="assets/img/icon/1.svg" alt="">2 Çocuk
+                                    <img class="me-1 ms-2" src="assets/img/icon/2.svg" alt=""> <?php echo e($rooms[$i]->capacity); ?>
 
+                                    kapasite
+                                    <img class="me-1 ms-2" src="assets/img/icon/3.svg" alt=""> <?php echo e($rooms[$i]->size); ?> cm
+                                    cm<sup>2</sup>
+                                </p>
+
+                            </div>
                         </div>
-                    </div>
                     <?php endfor; ?>
-                  
 
-                   
                 </div>
-                
-            </div>
+            
         </div>
-        <?php endif; ?>
     </div>
-  
+</div>
+<?php endif; ?>
 
 
 <div class="container my-5">
-  <div class="row">
-      <div class="col-md-6 d-flex align-items-center justify-content-start ">
-        <p class="text-black fs-2 fw-semibold font-family-Barlow text-uppercase  m-0 px-3 py-2">Hizmetlerİmİz</p>
+    <div class="row">
+        <div class="col-md-6 d-flex align-items-center justify-content-start ">
+            <p class="text-black fs-2 fw-semibold font-family-Barlow text-uppercase  m-0 px-3 py-2">Hizmetlerİmİz</p>
 
+        </div>
+
+        <div class="col-md-6">
+            <p class="text-end text-color me-5">
+                <a href="/services" class="text-decoration-none text-color mt-5">
+                    Detaylı Gör<i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </p>
+
+        </div>
     </div>
-
-    <div class="col-md-6">
-      <p class="text-end text-color me-5">
-        <a href="/services" class="text-decoration-none text-color mt-5">
-          Detaylı Gör<i class="fas fa-arrow-right ms-2"></i>
-        </a>
-      </p>
-
-  </div>
-  </div>
 </div>
 
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-12 col-md-4  d-flex flex-wrap justify-content-center" >
-      <div>
-          <div class="card card-1 border-0 mb-3" onclick="showImage('restaurant')" style="cursor: pointer;">
-              <div class="card-body text-center rounded-2">
-                  <h5 class="card-title">
-                      <img class="me-2" src="assets/img/icon/4.svg" alt="">RESTAURANT
-                  </h5>
-              </div>
-          </div>
+    <div class="row">
+        <div class="col-12 col-md-4  d-flex flex-wrap justify-content-center">
 
-          <div class="card card-1 mb-3 border-0" onclick="showImage('room')" style="cursor: pointer;">
-              <div class="card-body text-center">
-                  <h5 class="card-title mb-0">
-                      <img class="me-2" src="assets/img/icon/5.svg" alt="">En Yeni Odalar
-                  </h5>
-                  <span class="card-text mt-n2">Lüks</span>
-              </div>
-          </div>
+            <div>
+                <?php $__currentLoopData = $service_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    
+               
+                <div class="card card-1 border-0 mb-3" onclick="showImage('restaurant')" style="cursor: pointer;">
+                    <div class="card-body text-center rounded-2">
+                        <h5 class="card-title">
+                            <img class="me-2" src="assets/img/icon/<?php echo e($service_category->icon); ?>" alt=""><?php echo e($service_category->name); ?>
 
-          <div class="card card-1 mb-3 border-0" onclick="showImage('spa')" style="cursor: pointer;">
-              <div class="card-body text-center">
-                  <h5 class="card-title">
-                      <img class="me-2" src="assets/img/icon/6.svg" alt="">SPA & Masaj
-                  </h5>
-                  <span class="card-text mt-n2">Devamlı Açık</span>
-              </div>
-          </div>
+                        </h5>
+                        <?php if(isset($service_category) && $service_category->sub_name): ?>
+                        <span class="card-text mt-n2"><?php echo e($service_category->sub_name); ?></span>
+                            
+                        <?php endif; ?>
+                      
+                    </div>
+                </div>
 
-          <div class="card card-1 mb-3 border-0" onclick="showImage('pool')" style="cursor: pointer;">
-              <div class="card-body text-center">
-                  <h5 class="card-title">
-                      <img class="me-2" src="assets/img/icon/7.svg" alt="">Yüzme Havuzu
-                  </h5>
-                  <span class="card-text mt-n2">Devamlı Açık</span>
-              </div>
-          </div>
-      </div>
-  </div>
+                
 
-      <div class="col-12 col-md-7">
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner" id="carouselImages">
-                  <div class="carousel-item active">
-                      <img src="assets/img/karinnahotel/4.png" class="d-block w-100" alt="Restaurant Image">
-                  </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-              </button>
-          </div>
-      </div>
-  </div>
+                
+
+                
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-7">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="carouselImages">
+                    <div class="carousel-item active">
+                        <img src="assets/img/karinnahotel/4.png" class="d-block w-100" alt="Restaurant Image">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="assets/img/karinnahotel/4.png" class="d-block w-100" alt="Restaurant Image">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="assets/img/karinnahotel/4.png" class="d-block w-100" alt="Restaurant Image">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="assets/img/karinnahotel/4.png" class="d-block w-100" alt="Restaurant Image">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+
+    </div>
 </div>
 
 
 <div class="container my-5">
-  <div class="row">
-      <div class="col-md-6 d-flex align-items-center justify-content-start ">
-        <p class="text-black fs-2 fw-semibold font-family-Barlow text-uppercase  m-0 px-3 py-2">Manzaralar</p>
+    <div class="row">
+        <div class="col-md-6 d-flex align-items-center justify-content-start ">
+            <p class="text-black fs-2 fw-semibold font-family-Barlow text-uppercase  m-0 px-3 py-2">Manzaralar</p>
 
+        </div>
+
+        <div class="col-md-6">
+            <p class="text-end text-color me-5 mt-5">
+                <a href="/gallery" class="text-decoration-none text-color">
+                    Detaylı Gör<i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </p>
+
+        </div>
     </div>
-
-    <div class="col-md-6">
-      <p class="text-end text-color me-5 mt-5">
-        <a href="/gallery" class="text-decoration-none text-color">
-          Detaylı Gör<i class="fas fa-arrow-right ms-2"></i>
-        </a>
-      </p>
-
-  </div>
-  </div>
 </div>
-
-
 
 
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6">
-          <div class="mb-3">
-            <a href="/foresthome">
-              <img src="assets/img/karinnahotel/5.png" class="img-fluid" alt="Resim 3">
-            </a>
-            <p class="text-center mt-2">Orman Evleri</p>
-          </div>
+            <div class="mb-3">
+                <a href="/foresthome">
+                    <img src="assets/img/karinnahotel/5.png" class="img-fluid" alt="Resim 3">
+                </a>
+                <p class="text-center mt-2">Orman Evleri</p>
+            </div>
         </div>
 
         <div class="col-md-6">
-          <div class="mb-3">
-            <a href="/restaurant">
-              <img src="assets/img/karinnahotel/6.png" class="img-fluid" alt="Resim 1">
-            </a>
-            <p class="text-center mt-2">Mons Restaurant</p>
-          </div>
-          <div class="mb-3">
-            <a href="/gallery">
-              <img src="assets/img/karinnahotel/7.png" class="img-fluid" alt="Resim 2">
-            </a>
-            <p class="text-center mt-2">Karinna Hotel-Gece Kulübü</p>
-          </div>
+            <div class="mb-3">
+                <a href="/restaurant">
+                    <img src="assets/img/karinnahotel/6.png" class="img-fluid" alt="Resim 1">
+                </a>
+                <p class="text-center mt-2">Mons Restaurant</p>
+            </div>
+            <div class="mb-3">
+                <a href="/gallery">
+                    <img src="assets/img/karinnahotel/7.png" class="img-fluid" alt="Resim 2">
+                </a>
+                <p class="text-center mt-2">Karinna Hotel-Gece Kulübü</p>
+            </div>
         </div>
-      </div>
+    </div>
 
 </div>
 
 
-
-    <?php echo $__env->make('guest.includes.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+<?php echo $__env->make('guest.includes.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 </body>

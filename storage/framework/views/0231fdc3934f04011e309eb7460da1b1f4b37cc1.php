@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('content'); ?>
     <div class="wrapper">
         <div class="content-wrapper">
@@ -16,193 +17,35 @@
                             </div>
 
                             <div class="card-body">
-                                <form method="post" action="<?php echo e(url('/admin/homepage/edit/' . $data->id)); ?>"
-                                    enctype="multipart/form-data">
-
+                                <form method="post"
+                                    enctype="multipart/form-data" action="<?php echo e(route('admin.homepage.update', ['id' => $data?->id])); ?>">
                                     <?php echo csrf_field(); ?>
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="inputName">Title Tr</label>
-                                                <input type="text" name="title_tr" class="form-control"
-                                                    value="<?php echo e($data['title_tr']); ?>">
+                                                <label for="inputTitleTr">Title TR</label>
+                                                <input type="text" name="title" class="form-control" value="<?php echo e($data?->title); ?>">
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName">Keywords Tr</label>
-                                                <input type="text" name="keywords_tr" class="form-control"
-                                                    value="<?php echo e($data['keywords_tr']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Description Tr</label>
-                                                <input type="text" name="description_tr" class="form-control"
-                                                    value="<?php echo e($data['description_tr']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Slider İçerik 1 Tr</label>
-                                                <input type="text" name="slider_text_one_tr" class="form-control" value="<?php echo e($data['slider_text_one_tr']); ?>">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputName">Slider İçerik 2 Tr</label>
-                                                <input type="text" name="slider_text_two_tr" class="form-control" value="<?php echo e($data['slider_text_two_tr']); ?>">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Slider İçerik Tr</label>
-                                                <textarea class="content" cols="80" id="summernote9" name="slider_text_three_tr" rows="10"><?php echo e($data['slider_text_three_tr']); ?></textarea>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputName">Hakkımızda Başlık 1 Tr</label>
-                                                <input type="text" name="about_one_tr" class="form-control"
-                                                    value="<?php echo e($data['about_one_tr']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Hakkımızda Başlık 2 Tr</label>
-                                                <input type="text" name="about_two_tr" class="form-control"
-                                                    value="<?php echo e($data['about_two_tr']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Hakkımızda İçerik Tr</label>
-                                                <textarea class="content summernote" cols="80" name="about_content_tr" rows="10"><?php echo e($data['about_content_tr']); ?></textarea>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputName">Oda Başlık 1 Tr</label>
-                                                <input type="text" name="room_one_tr" class="form-control"
-                                                    value="<?php echo e($data['room_one_tr']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Oda Başlık 2 Tr</label>
-                                                <input type="text" name="room_two_tr" class="form-control"
-                                                    value="<?php echo e($data['room_two_tr']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Oda İçerik Tr</label>
-                                                <input type="text" name="room_content_tr" class="form-control"
-                                                    value="<?php echo e($data['room_content_tr']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">İmkan-Fırsat Başlık 1 Tr</label>
-                                                <input type="text" name="activity_one_tr" class="form-control"
-                                                    value="<?php echo e($data['activity_one_tr']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">İmkan-Fırsat Başlık 2 Tr</label>
-                                                <input type="text" name="activity_two_tr" class="form-control"
-                                                    value="<?php echo e($data['activity_two_tr']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">İmkan-Fırsat İçerik Tr</label>
-                                                <textarea class="content" cols="80" id="summernote2" name="activity_content_tr" rows="10"><?php echo e($data['activity_content_tr']); ?></textarea>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputName">Video Başlık 1 Tr</label>
-                                                <input type="text" name="video_tr" class="form-control"
-                                                    value="<?php echo e($data['video_tr']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Video Başlık 2 Tr</label>
-                                                <input type="text" name="video_content_tr" class="form-control"
-                                                    value="<?php echo e($data['video_content_tr']); ?>">
+                                                <label for="inputSubtitleTr">Subtitle TR</label>
+                                                <input type="text" name="subtitle" class="form-control" value="<?php echo e($data?->subtitle); ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="inputName">Title En</label>
-                                                <input type="text" name="title_en" class="form-control"
-                                                    value="<?php echo e($data['title_en']); ?>">
+                                                <label for="inputTitleEn">Title EN</label>
+                                                <input type="text" name="title_en" class="form-control" value="<?php echo e($data?->title_en); ?>">
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputName">Keywords En</label>
-                                                <input type="text" name="keywords_en" class="form-control"
-                                                    value="<?php echo e($data['keywords_en']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Description En</label>
-                                                <input type="text" name="description_en" class="form-control"
-                                                    value="<?php echo e($data['description_en']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Slider İçerik 1 En</label>
-                                                <input type="text" name="slider_text_one_en" class="form-control" value="<?php echo e($data['slider_text_one_en']); ?>">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputName">Slider İçerik 2 En</label>
-                                                <input type="text" name="slider_text_two_en" class="form-control" value="<?php echo e($data['slider_text_two_en']); ?>">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Slider İçerik En</label>
-                                                <textarea class="content" cols="80" id="summernote10" name="slider_text_three_en" rows="10"><?php echo e($data['slider_text_three_en']); ?></textarea>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputName">Hakkımızda Başlık 1 En</label>
-                                                <input type="text" name="about_one_en" class="form-control"
-                                                    value="<?php echo e($data['about_one_en']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Hakkımızda Başlık 2 En</label>
-                                                <input type="text" name="about_two_en" class="form-control"
-                                                    value="<?php echo e($data['about_two_en']); ?>">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Hakkımızda İçerik En</label>
-                                                <textarea class="content summernote" cols="80" name="about_content_en" rows="10"><?php echo e($data['about_content_en']); ?></textarea>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputName">Oda Başlık 1 En</label>
-                                                <input type="text" name="room_one_en" class="form-control"
-                                                    value="<?php echo e($data['room_one_en']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Oda Başlık 2 En</label>
-                                                <input type="text" name="room_two_en" class="form-control"
-                                                    value="<?php echo e($data['room_two_en']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Oda İçerik En</label>
-                                                <input type="text" name="room_content_en" class="form-control"
-                                                    value="<?php echo e($data['room_content_en']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">İmkan-Fırsat Başlık 1 En</label>
-                                                <input type="text" name="activity_one_en" class="form-control"
-                                                    value="<?php echo e($data['activity_one_en']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">İmkan-Fırsat Başlık 2 En</label>
-                                                <input type="text" name="activity_two_en" class="form-control"
-                                                    value="<?php echo e($data['activity_two_en']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">İmkan-Fırsat İçerik En</label>
-                                                <textarea class="content" cols="80" id="summernote4" name="activity_content_en" rows="10"><?php echo e($data['activity_content_en']); ?></textarea>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputName">Video Başlık 1 En</label>
-                                                <input type="text" name="video_en" class="form-control"
-                                                    value="<?php echo e($data['video_en']); ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputName">Video Başlık 2 En</label>
-                                                <input type="text" name="video_content_en" class="form-control"
-                                                    value="<?php echo e($data['video_content_en']); ?>">
+                                                <label for="inputSubtitleEn">Subtitle EN</label>
+                                                <input type="text" name="subtitle_en" class="form-control" value="<?php echo e($data?->subtitle_en); ?>">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="inputName">Video Url</label>
-                                        <input type="text" name="video_url" class="form-control"
-                                            value="<?php echo e($data['video_url']); ?>">
+                                        <label for="inputVideoUrl">Video URL</label>
+                                        <input type="text" name="video_url" class="form-control" value="<?php echo e($data?->video_url); ?>">
                                     </div>
 
                                     <button type="submit" class="btn btn-success">Güncelle</button>

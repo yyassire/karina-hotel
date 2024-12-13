@@ -7,7 +7,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Oda Galeri Yönetimi</h1>
+                            <h1>Hizmetler Yönetimi</h1>
                         </div>
                     </div>
                 </div><!-- /.container-fluid -->
@@ -25,10 +25,10 @@
                 <div class="card">
                     <div class="card-header">
                        
-                        <form method="post" action="{{route('admin.room_gallery.store')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{route('admin.service.store')}}" enctype="multipart/form-data">
                             @csrf
 
-                            <input type="hidden" name="room_id" value="{{$id}}">
+                            {{-- <input type="hidden" name="room_id" value="{{$id}}"> --}}
 
 
                             <div class="form-group">
@@ -36,6 +36,14 @@
                                 <input type="file" name="image[]" multiple id="input-file-now" class="dropify" required/>         
                                 <span style="color: red">@error('image') {{$message}} @enderror</span>                   
                             </div>
+                            <div class="mb-5">
+                                <select name="category_id" class="selectpicker" data-live-search="true" title='filtreleme etiketi'>
+                                   @foreach ($category_data as $category_single_data )
+                                       <option value="{{ $category_single_data->id }}">{{$category_single_data->name}}</option>
+                                   @endforeach      
+                                 </select>
+                           </div>
+
                             <button type="submit" class="btn btn-primary btn-sm">Kaydet</button>
                         </form>
                     </div>
@@ -45,7 +53,7 @@
                             <tr>
                                 <th style="width: 1%">No</th>
                                 <th style="width: 20%">
-                                    Oda Resimleri
+                                   Hizmet Resimleri
                                 </th>
                                 <th style="width: 20%">
                                 </th>
@@ -67,7 +75,7 @@
                                     </td>
                                     <td class="project-actions text-right">
 
-                                        <a class="btn btn-danger btn-sm" href="{{url('/admin/room_gallery/delete/'.$val->id.'/'.$id)}}" onclick="return confirm('Silmek İstediğinizden Emin Misiniz ?')">
+                                        <a class="btn btn-danger btn-sm" href="{{url('/admin/service/delete/'.$val->id)}}" onclick="return confirm('Silmek İstediğinizden Emin Misiniz ?')">
                                             <i class="fas fa-trash">
                                             </i>
                                             Sil
@@ -89,6 +97,3 @@
     </script>
 @endsection
 
-users = [
-
-]

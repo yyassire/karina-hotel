@@ -25,7 +25,7 @@
                 <div class="card">
                     <div class="card-header">
 
-                        <form method="post" action="<?php echo e(route('admin.slider.store')); ?>" enctype="multipart/form-data">
+                        <form method="post" action="<?php echo e(route('admin.slider.add')); ?>" enctype="multipart/form-data">
                             <?php echo csrf_field(); ?>
 
                             <?php if($errors->any()): ?>

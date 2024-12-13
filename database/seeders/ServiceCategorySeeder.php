@@ -19,6 +19,7 @@ class ServiceCategorySeeder extends Seeder
             [
                 // ana ssayfa slider
                 'name' => 'RESTAURANT',
+                'sub_name' => 'Lüks',
                 'icon' => '4.svg',
                 'created_at' => now(),
                 'updated_at' => now(),

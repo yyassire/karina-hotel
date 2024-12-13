@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Slider;
 use App\Models\SliderFilter;
 use App\Models\MainPageTitleSubtitle;
+use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,7 +20,10 @@ class HomeController extends Controller
             ->take(5)
             ->get();
         $titles = MainPageTitleSubtitle::all();
-        return view('guest.index', compact('rooms', 'titles'));
+        $data = MainPageTitleSubtitle::first();
+        $services = Service::all();
+        $service_categories = ServiceCategory::all();
+        return view('guest.index', compact('rooms', 'titles', 'data', 'services', 'service_categories'));
     }
 
     public function foresthome()

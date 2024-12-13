@@ -25,7 +25,7 @@
                 <div class="card">
                     <div class="card-header">
 
-                        <form method="post" action="{{ route('admin.slider.store') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('admin.slider.add') }}" enctype="multipart/form-data">
                             @csrf
 
                             @if ($errors->any())
